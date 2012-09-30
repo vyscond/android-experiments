@@ -27,7 +27,6 @@
 <fullyQualifiedTypeName name="museu.goeldi.sinbiomobile.R.id"/>
 <fullyQualifiedTypeName name="museu.goeldi.sinbiomobile.R.layout"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="museu.goeldi.mobile.CadastroAmostra"/>
 <fullyQualifiedTypeName name="android.view.View"/>
@@ -37,9 +36,20 @@
 <fullyQualifiedTypeName name="museu.goeldi.mobile.R.layout"/>
 <fullyQualifiedTypeName name="museu.goeldi.mobile.R.id"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="android.content.Intent"/>
-<fullyQualifiedTypeName name="android.content.res.Resources"/>
-<fullyQualifiedTypeName name="android.widget.TabHost"/>
-<fullyQualifiedTypeName name="android.widget.TabHost.TabSpec"/>
 <fullyQualifiedTypeName name="museu.goeldi.mobile.tabs.GeneralData"/>
+<fullyQualifiedTypeName name="core.dev.tabhosttest.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.TabWidget"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.widget.TabHost.TabSpec"/>
+<fullyQualifiedTypeName name="java.lang.CharSequence"/>
+<fullyQualifiedTypeName name="android.graphics.drawable.Drawable"/>
+<fullyQualifiedTypeName name="core.dev.tabhosttest.R.drawable"/>
+<fullyQualifiedTypeName name="android.content.res.Resources"/>
+<fullyQualifiedTypeName name="android.app.ActivityGroup"/>
+<fullyQualifiedTypeName name="android.widget.TabHost"/>
+<fullyQualifiedTypeName name="core.dev.tabhosttest.R.id"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="android.view.View.OnHoverListener"/>
+<fullyQualifiedTypeName name="museu.goeldi.mobile.cadastro.EditarRegistroAmostra"/>
 </qualifiedTypeNameHistroy>

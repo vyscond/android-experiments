@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".cadastro.CadastroAmostra"
+            android:name=".cadastro.CriarRegistroAmostra"
             android:label="@string/title_activity_cadastro_amostra" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".VizualizarAmostras"
+            android:name=".cadastro.EditarRegistroAmostra"
             android:label="@string/title_activity_vizualizar_amostras" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

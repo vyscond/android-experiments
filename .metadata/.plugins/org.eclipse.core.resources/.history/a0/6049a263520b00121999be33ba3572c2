@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="none">None</string>
+    
+    <string-array name="metodo">
+        <item>Armadilha CDC com isca atrativa</item>
+        <item>Armadilha CDC</item>
+        
+    </string-array>
+    
+    <string name="armadilha_cdc_com_isca_atrativa"></string>
+    <string name="armadilha_cdc">Armadilha CDC</string>
+</resources>

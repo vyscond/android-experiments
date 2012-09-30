@@ -27,3 +27,19 @@
 1348950290939	Move file
 1348950293872	Move file
 1348950296828	Move file
+1349034674355	Rename resource 'activity_cadastro_amostra.xml'
+1349034708047	Rename type 'CadastroAmostra'
+1349034735255	Delete element
+1349035171909	Move compilation unit
+1349035186001	Rename type 'VizualizarAmostras'
+1349035207442	Rename resource 'activity_vizualizar_amostras.xml'
+1349035220682	Rename resource 'cadastro_amostra_general_data.xml'
+1349035226799	Rename resource 'cadastro_amostra_localizacao_da_amostra.xml'
+1349035568650	Rename type 'EditarAmostras'
+1349035592743	Rename resource 'activity_editar_amostras.xml'
+1349035857723	Rename method 'acessar_cadastro_amostra_onClick'
+1349035918318	Rename field 'screen_cadastro_amostra'
+1349035980771	Rename field 'textView_acessar_cadastro_amostra'
+1349037922041	Delete element
+1349045898612	Rename resource 'metodos.xml'
+1349047053086	Delete element
