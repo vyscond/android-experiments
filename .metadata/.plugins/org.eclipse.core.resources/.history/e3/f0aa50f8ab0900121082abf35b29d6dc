@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- color bind -->
+    
+    <string name="black">00FFFFFF</string>
+    
+    <string name="app_name">Sinbio</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- main menu -->
+
+    <string name="screen_amostra_cadastro">Cadastro de Amostras</string>
+    <string name="screen_possible_stuff_1">Possible stuff 1</string>
+    <string name="screen_possible_stuff_2">Possible stuff 2</string>
+
+    <!-- amostra cadastro general data -->
+
+    <string name="amostra_cadastro_general_data_ID_AMOSTRA">ID da amostra dado pelo coletor</string>
+    <string name="amostra_cadastro_general_data_EXPEDICAO">Expedição</string>
+    <string name="amostra_cadastro_general_data_PROJETO">Projeto</string>
+    <string name="amostra_cadastro_general_data_PROTOCOLO">Protocolo</string>
+    <string name="amostra_cadastro_general_data_METODO">Metodo</string>
+    <string name="amostra_cadastro_general_data_ATRATIVO">Atrativo</string>
+    <string name="amostra_cadastro_general_data_DATA_COLETA">Data da Coleta</string>
+    <string name="amostra_cadastro_general_data_HORA_COLETA">Hora da Coleta</string>
+    <string name="title_activity_cadastro_amostra">CadastroAmostra</string>
+
+</resources>

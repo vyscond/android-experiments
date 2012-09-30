@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">FrameWork2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_test_spinner_viewer">TestSpinnerViewer</string>
+
+    <string name="alpha_text_1">Testing Resource str 1</string>
+    <string name="alpha_text_2">Testing Resource str 2</string>
+    
+    
+    <string name="spinnerselectionlayout_testando_01">Testing Resource str 1</string>
+    <string name="spinnerselectionlayout_testando_02">Testing Resource str 2</string>
+    
+</resources>

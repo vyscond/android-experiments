@@ -1,0 +1,23 @@
+package museu.goeldi.mobile;
+
+import museu.goeldi.mobile.R;
+import museu.goeldi.mobile.R.layout;
+import museu.goeldi.mobile.R.menu;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+
+public class GeneralData extends Activity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_general_data);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_general_data, menu);
+        return true;
+    }
+}

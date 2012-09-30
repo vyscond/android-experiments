@@ -1,0 +1,6 @@
+com.android.ide.eclipse.adt.fixLegacyEditors=1
+com.android.ide.eclipse.adt.palette=ICON_TEXT,alpha
+com.android.ide.eclipse.adt.sdk=C\:\\android-sdk
+design.palette.flyout.width=147
+design.structure.flyout.width=366
+eclipse.preferences.version=1
