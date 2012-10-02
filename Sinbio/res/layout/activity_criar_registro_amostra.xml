@@ -266,6 +266,11 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+            <ViewStub
+                android:id="@+id/viewStub_tela_variaveis_metodo_selecionado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textView_criar_registro_amostra_localizacao_da_amostra_DELIMITER_TITLE"

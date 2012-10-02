@@ -49,9 +49,8 @@ public final class R {
         public static final int editText_criar_registro_amostra_general_data_DATA_COLETA=0x7f07000f;
         public static final int editText_criar_registro_amostra_general_data_HORA_COLETA=0x7f070011;
         public static final int editText_criar_registro_amostra_general_data_ID_AMOSTRA=0x7f070003;
-        public static final int editText_criar_registro_amostra_general_data_LATITUDE=0x7f070014;
-        public static final int editText_criar_registro_amostra_general_data_LONGITUDE=0x7f070016;
-        public static final int listView1=0x7f070017;
+        public static final int editText_criar_registro_amostra_general_data_LATITUDE=0x7f070015;
+        public static final int editText_criar_registro_amostra_general_data_LONGITUDE=0x7f070017;
         public static final int menu_settings=0x7f070032;
         public static final int scrollView1=0x7f07001d;
         public static final int spinner_cadastro_amostra_general_data_ATRATIVO=0x7f070029;
@@ -75,10 +74,11 @@ public final class R {
         public static final int textView_criar_registro_amostra_general_data_DELIMITER_TITLE=0x7f070001;
         public static final int textView_criar_registro_amostra_general_data_EXPEDICAO=0x7f070004;
         public static final int textView_criar_registro_amostra_general_data_ID_AMOSTRA=0x7f070002;
-        public static final int textView_criar_registro_amostra_general_data_LATITUDE=0x7f070013;
-        public static final int textView_criar_registro_amostra_general_data_LONGITUDE=0x7f070015;
+        public static final int textView_criar_registro_amostra_general_data_LATITUDE=0x7f070014;
+        public static final int textView_criar_registro_amostra_general_data_LONGITUDE=0x7f070016;
         public static final int textView_criar_registro_amostra_general_data_PROTOCOLO=0x7f070008;
-        public static final int textView_criar_registro_amostra_localizacao_da_amostra_DELIMITER_TITLE=0x7f070012;
+        public static final int textView_criar_registro_amostra_localizacao_da_amostra_DELIMITER_TITLE=0x7f070013;
+        public static final int viewStub_tela_variaveis_metodo_selecionado=0x7f070012;
     }
     public static final class layout {
         public static final int activity_criar_registro_amostra=0x7f030000;
