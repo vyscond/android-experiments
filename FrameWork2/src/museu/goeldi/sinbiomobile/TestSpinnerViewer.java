@@ -2,6 +2,7 @@ package museu.goeldi.sinbiomobile;
 
 import java.util.ArrayList;
 
+import TestingSpinner.CustomSpinner;
 import TestingSpinner.SpinnerItem;
 import android.app.Activity;
 import android.os.Bundle;
@@ -34,9 +35,9 @@ public class TestSpinnerViewer extends Activity {
         // --- working good :D
         
         
-        CoreSpinner cs = new CoreSpinner(this, sp , arr);
+        //CoreSpinner cs = new CoreSpinner(this, sp , arr);
         
-        //CustomSpinner cs = new CustomSpinner(this, sp, arr);
+        CustomSpinner cs = new CustomSpinner(this, sp, arr);
         
         
         
@@ -51,7 +52,7 @@ public class TestSpinnerViewer extends Activity {
        
        ViewStub vs = (ViewStub) findViewById( R.id.viewStub1);
        
-       CoreDynamicSpinnerViewer cdsv = new CoreDynamicSpinnerViewer(this, sp,  vs, arr, loadableViewsID);
+       CustomSpinner cdsv = new CustomSpinner(this, sp,  vs, arr, loadableViewsID);
        
       
         /*  beta test with viewstub :D 

@@ -3,18 +3,19 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="464" key="DIALOG_WIDTH"/>
 		<item value="54" key="DIALOG_Y_ORIGIN"/>
-		<item value="357" key="DIALOG_HEIGHT"/>
 		<item value="822" key="DIALOG_X_ORIGIN"/>
+		<item value="357" key="DIALOG_HEIGHT"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="_criar_registro_amostra_" key="selection"/>
+		<item value="this.formatn" key="selection"/>
 		<list key="findhistory">
+			<item value="format"/>
 			<item value="_cadastro_amostra_"/>
 			<item value="request"/>
 			<item value="android:layout_margin"/>
@@ -22,6 +23,8 @@
 			<item value="amostra_cadastro"/>
 		</list>
 		<list key="replacehistory">
+			<item value="this.formatn"/>
+			<item value="this.format"/>
 			<item value="_criar_registro_amostra_"/>
 			<item value="cadastro_amostra"/>
 		</list>

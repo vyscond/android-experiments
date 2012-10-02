@@ -20,17 +20,25 @@
 		<item value="1025" key="dialogWidth"/>
 		<item value="558" key="dialogHeight"/>
 		<list key="orderedProviders">
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.commands"/>
 		</list>
 		<list key="textArray">
+			<item value="getter"/>
+			<item value="constr"/>
 		</list>
 		<list key="orderedElements">
+			<item value="org.eclipse.jdt.ui.edit.text.java.create.getter.setter"/>
+			<item value="org.eclipse.jdt.ui.edit.text.java.generate.constructor.using.fields"/>
 		</list>
 		<list key="textEntries">
+			<item value="1"/>
+			<item value="1"/>
 		</list>
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="22" key="DIALOG_Y_ORIGIN"/>
-		<item value="374" key="DIALOG_X_ORIGIN"/>
+		<item value="93" key="DIALOG_Y_ORIGIN"/>
+		<item value="47" key="DIALOG_X_ORIGIN"/>
 	</section>
 	<section name="ZipFileImportWizard">
 	</section>

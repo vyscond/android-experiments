@@ -8,5 +8,10 @@
     "location": "C:\\Users\\abara\\Desktop\\android_workspace\\SinbioMobile\\src",
     "status": "UNRESOLVED",
     "error": "No class path info available for \u0027C:\\Users\\abara\\Desktop\\android_workspace\\SinbioMobile\\src\u0027. Skipped."
+  },
+  "C:\\Users\\abara\\Desktop\\android_workspace\\FrameWork3\\src": {
+    "location": "C:\\Users\\abara\\Desktop\\android_workspace\\FrameWork3\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\abara\\Desktop\\android_workspace\\FrameWork3\\src\u0027. Skipped."
   }
 }

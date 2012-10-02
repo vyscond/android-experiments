@@ -1,5 +1,18 @@
 [
   {
+    "symbolicName": "nu.xom",
+    "version": {
+      "major": 1,
+      "minor": 2,
+      "micro": 8,
+      "qualifier": "osgi"
+    },
+    "jarFileFingerprint": "986b83e8d6c4acdf18762d6508acd3aedca08a31",
+    "jarFileModificationDate": "2012-10-01T15:10:42.641-03:00",
+    "location": "C:\\Users\\abara\\Downloads\\xom-1.2.8.jar",
+    "javaRuntime": false
+  },
+  {
     "symbolicName": "jre",
     "version": {
       "major": 1,
@@ -143,6 +156,19 @@
     "javaRuntime": true
   },
   {
+    "symbolicName": "android-support-v4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "612846c9857077a039b533718f72db3bc041d389",
+    "jarFileModificationDate": "2012-10-01T19:53:23.746-03:00",
+    "location": "C:\\Users\\abara\\Desktop\\android_workspace\\GridView\\libs\\android-support-v4.jar",
+    "javaRuntime": false
+  },
+  {
     "symbolicName": "jre",
     "version": {
       "major": 1,
@@ -154,6 +180,19 @@
     "jarFileModificationDate": "2012-07-20T10:26:56.628-03:00",
     "location": "C:\\java\\jre6\\lib\\charsets.jar",
     "javaRuntime": true
+  },
+  {
+    "symbolicName": "android-support-v4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "612846c9857077a039b533718f72db3bc041d389",
+    "jarFileModificationDate": "2012-10-01T15:58:32.014-03:00",
+    "location": "C:\\Users\\abara\\Desktop\\android_workspace\\FrameWork3\\libs\\android-support-v4.jar",
+    "javaRuntime": false
   },
   {
     "symbolicName": "jre",
