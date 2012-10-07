@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy package &apos;simple&apos; to &apos;SinbioMobile/src&apos;&#x0D;&#x0A;- Original project: &apos;FrameWork&apos;&#x0D;&#x0A;- Destination element: &apos;SinbioMobile/src&apos;&#x0D;&#x0A;- Original element: &apos;FrameWork/src/simple&apos;" description="Copy package" destination="=SinbioMobile/src" element1="/src&lt;simple" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1346767297704" version="1.0"/>
-</session>
