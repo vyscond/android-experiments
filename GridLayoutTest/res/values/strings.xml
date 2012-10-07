@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">GridLayoutTest</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Grid Layout Test</string>
+    <string name="title_activity_source_code">SourceCode</string>
+
+</resources>

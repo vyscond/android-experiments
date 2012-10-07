@@ -22,10 +22,13 @@
         </activity>
         <activity
             android:name=".testing.SimpleListViewInActionActivity"
-            android:label="@string/title_activity_simple_list_view_in_action" >
+            android:label="@string/title_activity_simple_list_view_in_action" 
+    	android:configChanges="orientation|keyboardHidden" 
+            >
+             
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+	
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

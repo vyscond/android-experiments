@@ -10,19 +10,28 @@ public class MainActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
+		
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_main);
 
 		GridView gv = (GridView) findViewById(R.id.gridView1);
-
-		GenericAdapter adapter = new GenericAdapter(this);
 		
+		GenericAdapter adapter = new GenericAdapter(this);
 		
 		gv.setAdapter(adapter);
 		
 		gv.setColumnWidth(3);
 		
-		//----------------------------
+		/* --- The buttons
+		 * 
+		 * 1 - apesar de ainda estarmos usando o generic adapter as coisas continuam simples.
+		 * dê olho no metodo getView do GenericAdapter
+		 *  
+		 * 3 - agora os botões abaixo fazem sentido :D
+		 *  
+		 */
 		
 		ButtonOption b1 = new ButtonOption();
 		

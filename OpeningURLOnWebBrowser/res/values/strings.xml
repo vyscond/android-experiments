@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">Opening URL On WebBrowser</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Opening Browser :D</string>
+    <string name="button_open_browser">open on browser</string>
+    <string name="revert">revert text</string>
+
+</resources>

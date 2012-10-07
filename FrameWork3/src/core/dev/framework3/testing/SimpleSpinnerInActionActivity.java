@@ -54,6 +54,12 @@ public class SimpleSpinnerInActionActivity extends Activity {
     }
 
     @Override
+	public Object onRetainNonConfigurationInstance() {
+		// return this.m_adapter.getItems();
+		return this.simpleSpinner.getAdapter().getItems();
+	}
+    
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_simple_spinner_in_action, menu);
         return true;

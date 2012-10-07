@@ -21,8 +21,6 @@ public class SimpleSpinner extends Simple {
 
 	private Spinner spinner;
 	
-	private GenericAdapter adapter;
-	
 	public void addItem( GenericItemList item )
 	{
 		this.adapter.addItem(item);
@@ -32,5 +30,7 @@ public class SimpleSpinner extends Simple {
 	{
 		return this.spinner;
 	}
+
+	
 	
 }

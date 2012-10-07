@@ -2,8 +2,9 @@ package core.framework.generics.adapter;
 
 import java.util.ArrayList;
 
-
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,11 @@ public class GenericAdapter extends BaseAdapter {
 	Context context;
 
 	/* --- mah methods --- */
+	
+	public ArrayList<GenericItemList> getItems()
+	{
+		return this.items;
+	}
 	
 	public void addItem(GenericItemList item)
 	{
@@ -41,18 +47,67 @@ public class GenericAdapter extends BaseAdapter {
 	}
 	
 
+	/*-------------------------------------------------------------------------
+	 * 
+	 *                           CONSTRUCTORS
+	 * 
+	 *------------------------------------------------------------------------*/
+	
 	public GenericAdapter(Context context, ArrayList<GenericItemList> items) {
 		super();
-		this.items = items;
+		
 		this.context = context;
+		
+		/* --- REDRAW ROUTINE --- */
+		
+		Log.d("GenericAdapter", "Building Adapter with context");		
+		
+		//ArrayList<GenericItemList> sResultsArr = (ArrayList<GenericItemList>) ((Activity) this.context).getLastNonConfigurationInstance();
+
+		Log.d("GenericAdapter", "Verifying stance of \"last array of items\"");
+		
+		if (items == null) {
+			
+			Log.d("GenericAdapter", "Making new stance for items");
+			
+			items = new ArrayList<GenericItemList>(); // or some other
+															// initialization
+		}
+		
+		Log.d("GenericAdapter", "Valid stance :D");
+		
+		this.items = items;
 
 	}
 	
 	public GenericAdapter(Context context) {
+		
 		super();
+		
+		Log.d("GenericAdapter", "Building Adapter with context");
+		
 		this.context = context;
 		
-		this.items = new ArrayList<GenericItemList>();
+		/* --- REDRAW ROUTINE --- */
+		
+		
+		ArrayList<GenericItemList> items = (ArrayList<GenericItemList>) ( (Activity) this.context).getLastNonConfigurationInstance();
+
+		Log.d("GenericAdapter", "Verifying last stance of items");
+		
+		if (items == null) {
+			
+			Log.d("GenericAdapter", "Making new stance for items");
+			
+			items = new ArrayList<GenericItemList>(); // or some other
+															// initialization
+		}
+		
+		Log.d("GenericAdapter", "Valid stance :D");
+		
+		this.items = items;
+		
+		//this.items = new ArrayList<GenericItemList>();
 
 	}
 
@@ -77,20 +132,20 @@ public class GenericAdapter extends BaseAdapter {
 		
 		this.items.get(position).setId(position);
 		
-		View rowView = convertView;
+		View itemView = convertView;
 		
-		if (rowView == null) {
+		if (itemView == null) {
 			
-			rowView = (LayoutInflater.from(context)).inflate(layout, null);
+			itemView = (LayoutInflater.from(context)).inflate(layout, null);
 
-			rowView.setId(position);
+			itemView.setId(position);
 			
 			
 		}
 
-		rowView = this.items.get(position).initializeWidgets(rowView);
+		itemView = this.items.get(position).initializeWidgets(itemView);
 
-		return rowView;
+		return itemView;
 
 	}
 

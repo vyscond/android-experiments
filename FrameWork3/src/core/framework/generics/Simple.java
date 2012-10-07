@@ -1,10 +1,13 @@
 package core.framework.generics;
 
+import core.framework.generics.adapter.GenericAdapter;
 import android.content.Context;
 
 public class Simple {
 	
-	private Context context;
+	protected Context context;
+	
+	protected GenericAdapter adapter;
 
 	public Context getContext() {
 		return context;
@@ -19,6 +22,10 @@ public class Simple {
 		this.context = context;
 	}
 
+	public GenericAdapter getAdapter() {
+		// TODO Auto-generated method stub
+		return this.adapter;
+	}
 	
 	
 }

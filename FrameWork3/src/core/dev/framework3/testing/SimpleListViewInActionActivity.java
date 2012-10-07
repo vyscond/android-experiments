@@ -1,6 +1,9 @@
 package core.dev.framework3.testing;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -10,6 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import core.dev.framework3.R;
 import core.framework.generics.SimpleListView;
+import core.framework.generics.adapter.GenericItemList;
 
 public class SimpleListViewInActionActivity extends Activity {
 
@@ -20,13 +24,7 @@ public class SimpleListViewInActionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_simple_list_view_in_action);
 
-		LinearLayout ll = (LinearLayout) findViewById(R.id.LinearLayoutSimpleListInAction);
-
-		simpleListView = new SimpleListView(this);
-
-		//
-
-		ll.addView(simpleListView.getListView());
+		this.BuildUI();
 
 		// simpleListView.addItem(p1);
 
@@ -46,7 +44,7 @@ public class SimpleListViewInActionActivity extends Activity {
 						.getText().toString());
 				p.setSecondName(((EditText) findViewById(R.id.editText_second_name))
 						.getText().toString());
-				
+
 				p.setLayout(R.layout.item_model_people);
 
 				simpleListView.addItem(p);
@@ -54,6 +52,31 @@ public class SimpleListViewInActionActivity extends Activity {
 			}
 		});
 
+	}
+
+	public void BuildUI() {
+		LinearLayout ll = (LinearLayout) findViewById(R.id.LinearLayoutSimpleListInAction);
+
+		// ArrayList<GenericItemList> items = (ArrayList<GenericItemList>)
+		// this.getLastNonConfigurationInstance();
+
+		// simpleListView = new SimpleListView(this ,
+		// this.getLastInstanceOfItemList() );
+
+		simpleListView = new SimpleListView(this);
+
+		ll.addView(this.simpleListView.getListView());
+	}
+
+	@Override
+	public Object onRetainNonConfigurationInstance() {
+		// return this.m_adapter.getItems();
+		return this.simpleListView.getAdapter().getItems();
+	}
+
+	public ArrayList<GenericItemList> getLastInstanceOfItemList() {
+		return (ArrayList<GenericItemList>) this
+				.getLastNonConfigurationInstance();
 	}
 
 	@Override
