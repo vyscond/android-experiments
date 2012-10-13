@@ -2,17 +2,23 @@ package museu.goeldi.mobile;
 
 import museu.goeldi.mobile.cadastro.CriarRegistroAmostra;
 import museu.goeldi.mobile.cadastro.EditarRegistroAmostra;
+import museu.goeldi.mobile.cadastro.SwipeCriarRegistroAmostra;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 
 public class MainActivity extends Activity {
 	
+		
 	private TextView textView_criar_registro_amostra;
 	private TextView textView_editar_registro_amostra;
 
@@ -22,15 +28,17 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         
+    	
     	super.onCreate(savedInstanceState);
         
     	setContentView(R.layout.activity_main);
         
+    	
+    	
         this.textView_criar_registro_amostra = (TextView) findViewById(R.id.textView_acessar_criar_registro_amostra);
         
         this.textView_criar_registro_amostra.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
@@ -45,7 +53,6 @@ public class MainActivity extends Activity {
         
         this.textView_editar_registro_amostra.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
@@ -60,8 +67,8 @@ public class MainActivity extends Activity {
     
     private void acessar_criar_registro_amostra_screen_onClick(View v)
     {
-    	this.screen_criar_registro_amostra = new Intent(this , CriarRegistroAmostra.class);
-    	
+    	//this.screen_criar_registro_amostra = new Intent(this , CriarRegistroAmostra.class);
+    	this.screen_criar_registro_amostra = new Intent(this , SwipeCriarRegistroAmostra.class);
     	this.startActivityAndGetBackToMe(this.screen_criar_registro_amostra);
     	
     }

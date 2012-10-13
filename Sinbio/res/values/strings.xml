@@ -27,6 +27,9 @@
     <!-- amostra cadastro general data -->
 
     <string name="cadastro_amostra_general_data_DELIMITER_TITLE">Dados gerais</string>
+    <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_ONE">Dados gerais</string>
+    <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_TWO">Metodo</string>
+    <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_THREE">Localização</string>
     <string name="cadastro_amostra_general_data_ID_AMOSTRA">ID da amostra dado pelo coletor</string>
     <string name="cadastro_amostra_general_data_EXPEDICAO">Expedição</string>
     <string name="cadastro_amostra_general_data_PROJETO">Projeto</string>
@@ -42,5 +45,6 @@
     <string name="title_activity_general_data">GeneralData</string>
     <string name="title_activity_localization">Localization</string>
     <string name="title_activity_vizualizar_amostras">Lista de Amostras</string>
+    <string name="title_activity_swipe_criar_registro_amostra">SwipeCriarRegistroAmostra</string>
 
 </resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.38" >
+
+        <ViewFlipper
+            android:id="@+id/viewFlipper_registro_amostra_fragmented"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ViewStub
+                android:id="@+id/viewStub_loader_criar_registro_amostra_screen_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout="@layout/activity_criar_registro_amostra_screen_one" />
+
+            <ViewStub
+                android:id="@+id/viewStub_loader_criar_registro_amostra_screen_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout="@layout/activity_criar_registro_amostra_screen_two" />
+
+            <ViewStub
+                android:id="@+id/viewStub_loader_criar_registro_amostra_screen_three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout="@layout/activity_criar_registro_amostra_screen_three" />
+        </ViewFlipper>
+    </ScrollView>
+
+    <!-- botoes -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:gravity="fill"
+            android:orientation="vertical"
+            android:padding="15dp" >
+
+            <TextView
+                android:id="@+id/textView_left"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/button_color_switch_for_left_view"
+                android:gravity="center"
+                android:text="Left"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:gravity="fill"
+            android:orientation="vertical"
+            android:padding="15dp" >
+
+            <TextView
+                android:id="@+id/textView_right"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/button_color_switch_for_right_view"
+                android:gravity="center"
+                android:text="Right"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
