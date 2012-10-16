@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     android:orientation="vertical" >
 
     <ScrollView
@@ -50,12 +53,12 @@
             android:padding="15dp" >
 
             <TextView
-                android:id="@+id/textView_left"
+                android:id="@+id/textView_descartar_registro"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/button_color_switch_for_left_view"
                 android:gravity="center"
-                android:text="Left"
+                android:text="@string/button_label_cancelar_registro"
                 android:textColor="#ffffff" />
         </LinearLayout>
 
@@ -68,13 +71,13 @@
             android:padding="15dp" >
 
             <TextView
-                android:id="@+id/textView_right"
+                android:id="@+id/textView_salvar_registro"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/button_color_switch_for_right_view"
+                android:background="@drawable/button_salvar_green_full_rounded"
                 android:gravity="center"
-                android:text="Right"
-                android:textColor="#ffffff" />
+                android:text="@string/button_label_salvar_registro"
+                android:textColor="@color/whiteness" />
         </LinearLayout>
     </LinearLayout>
 

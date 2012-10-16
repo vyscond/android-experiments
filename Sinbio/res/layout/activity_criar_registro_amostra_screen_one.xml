@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    
+    android:orientation="vertical" >
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <TextView
             android:id="@+id/textView_criar_registro_amostra_general_data_DELIMITER_TITLE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -15,207 +21,210 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
             android:textSize="35dp" />
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
-        android:paddingTop="35dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_color"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp" >
 
-            <TextView
-                android:id="@+id/textView_criar_registro_amostra_general_data_ID_AMOSTRA"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/cadastro_amostra_general_data_ID_AMOSTRA"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:background="@drawable/background_color"
+                android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/editText_criar_registro_amostra_general_data_ID_AMOSTRA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="number" >
-            </EditText>
+                <TextView
+                    android:id="@+id/textView_criar_registro_amostra_general_data_ID_AMOSTRA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cadastro_amostra_general_data_ID_AMOSTRA"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/editText_criar_registro_amostra_general_data_ID_AMOSTRA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
-        android:paddingTop="35dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_color"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp" >
 
-            <TextView
-                android:id="@+id/textView_criar_registro_amostra_general_data_EXPEDICAO"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/cadastro_amostra_general_data_EXPEDICAO"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:background="@drawable/background_color"
+                android:orientation="vertical" >
 
-            <Spinner
-                android:id="@+id/spinner_criar_registro_amostra_general_data_EXPEDICAO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/textView_criar_registro_amostra_general_data_EXPEDICAO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cadastro_amostra_general_data_EXPEDICAO"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Spinner
+                    android:id="@+id/spinner_criar_registro_amostra_general_data_EXPEDICAO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
-        android:paddingTop="35dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_color"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp" >
 
-            <TextView
-                android:id="@+id/TextView_criar_registro_amostra_general_data_PROJETO"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/cadastro_amostra_general_data_PROJETO"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:background="@drawable/background_color"
+                android:orientation="vertical" >
 
-            <Spinner
-                android:id="@+id/spinner_criar_registro_amostra_general_data_PROJETO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/TextView_criar_registro_amostra_general_data_PROJETO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cadastro_amostra_general_data_PROJETO"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Spinner
+                    android:id="@+id/spinner_criar_registro_amostra_general_data_PROJETO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
-        android:paddingTop="35dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_color"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp" >
 
-            <TextView
-                android:id="@+id/textView_criar_registro_amostra_general_data_PROTOCOLO"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/cadastro_amostra_general_data_PROTOCOLO"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:background="@drawable/background_color"
+                android:orientation="vertical" >
 
-            <Spinner
-                android:id="@+id/spinner_criar_registro_amostra_general_data_PROTOCOLO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/textView_criar_registro_amostra_general_data_PROTOCOLO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cadastro_amostra_general_data_PROTOCOLO"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Spinner
+                    android:id="@+id/spinner_criar_registro_amostra_general_data_PROTOCOLO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
-        android:paddingTop="35dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_color"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp" >
 
-            <TextView
-                android:id="@+id/TextView_criar_registro_amostra_general_data_ATRATIVO"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/cadastro_amostra_general_data_ATRATIVO"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:background="@drawable/background_color"
+                android:orientation="vertical" >
 
-            <Spinner
-                android:id="@+id/spinner_criar_registro_amostra_general_data_ATRATIVO"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/TextView_criar_registro_amostra_general_data_ATRATIVO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cadastro_amostra_general_data_ATRATIVO"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <Spinner
+                    android:id="@+id/spinner_criar_registro_amostra_general_data_ATRATIVO"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
-        android:paddingTop="35dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_color"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp" >
 
-            <TextView
-                android:id="@+id/TextView_criar_registro_amostra_general_data_DATA_COLETA"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/cadastro_amostra_general_data_DATA_COLETA"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:background="@drawable/background_color"
+                android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/editText_criar_registro_amostra_general_data_DATA_COLETA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date" />
+                <TextView
+                    android:id="@+id/TextView_criar_registro_amostra_general_data_DATA_COLETA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cadastro_amostra_general_data_DATA_COLETA"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/editText_criar_registro_amostra_general_data_DATA_COLETA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="date" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
-        android:paddingTop="35dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_color"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingBottom="35dp"
+            android:paddingTop="35dp" >
 
-            <TextView
-                android:id="@+id/TextView_criar_registro_amostra_general_data_HORA_COLETA"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/cadastro_amostra_general_data_HORA_COLETA"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:background="@drawable/background_color"
+                android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/editText_criar_registro_amostra_general_data_HORA_COLETA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="time" />
+                <TextView
+                    android:id="@+id/TextView_criar_registro_amostra_general_data_HORA_COLETA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cadastro_amostra_general_data_HORA_COLETA"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <EditText
+                    android:id="@+id/editText_criar_registro_amostra_general_data_HORA_COLETA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="time" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

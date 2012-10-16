@@ -1,18 +1,62 @@
-package museu.goeldi.mobile.cadastro;
+package museu.goeldi.mobile.kiss;
 
-import museu.goeldi.mobile.R;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
+import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.TextView;
+import android.widget.Button;
 import android.widget.ViewFlipper;
 
-public class CriarRegistroAmostra extends Activity {
+public class ViewFlipperAnimatorWithButtons {
+
+	private ViewFlipper viewFlipper;
+	
+	private Button toLeftButton;
+	
+	private Button toRightButton;
+	
+	private Context context;
+	
+	public ViewFlipperAnimatorWithButtons( Context context , Button toLeftButton , Button toRightButton )
+	{
+		
+		this.context = context;
+		
+		this.toLeftButton = toLeftButton;
+		
+		this.toRightButton = toRightButton;
+		
+		/* ------------------------------ */
+		
+		this.toRightButton.setOnClickListener( new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				viewFlipper.setInAnimation(inFromRightAnimation());
+				viewFlipper.setOutAnimation(outToLeftAnimation());
+				viewFlipper.showNext();
+				
+			}
+		} );
+        
+        this.toLeftButton.setOnClickListener( new OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				viewFlipper.setInAnimation(inFromLeftAnimation());
+				viewFlipper.setOutAnimation(outToRightAnimation());
+				viewFlipper.showPrevious();
+				
+			}
+		} );
+		
+	}
+	
+	/* ------------------------------------------------ */
 	
 	private Animation inFromRightAnimation() {
 
@@ -58,53 +102,5 @@ public class CriarRegistroAmostra extends Activity {
 		outtoRight.setInterpolator(new AccelerateInterpolator());
 		return outtoRight;
 	}
-	
-	ViewFlipper f;
 
-	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        
-    	super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_criar_registro_amostra_fragmented);
-
-        f = (ViewFlipper) findViewById(R.id.viewFlipper_registro_amostra_fragmented);
-        
-        TextView left, right;
-        
-        left = (TextView) findViewById(R.id.textView_descartar_registro);
-        
-        right = (TextView) findViewById(R.id.textView_salvar_registro);
-        
-        right.setOnClickListener( new OnClickListener() {
-			
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				f.setInAnimation(inFromRightAnimation());
-				f.setOutAnimation(outToLeftAnimation());
-				f.showNext();
-				
-			}
-		} );
-        
-        left.setOnClickListener( new OnClickListener() {
-			
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				f.setInAnimation(inFromLeftAnimation());
-				f.setOutAnimation(outToRightAnimation());
-				f.showPrevious();
-				
-			}
-		} );
-        
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_cadastro_amostra, menu);
-        return true;
-    }
 }

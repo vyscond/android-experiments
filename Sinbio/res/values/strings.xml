@@ -9,7 +9,7 @@
     <string name="app_name">Sinbio</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">SINBIO Mobile</string>
 
     <!-- main menu -->
 
@@ -23,6 +23,11 @@
     <string name="button">Im a Button :D</string>
     <string name="textview">Im a TextView :D</string>
     <string name="textentry">Im a TextEntry :D</string>
+    
+    <!-- buttons labels -->
+    
+    <string name="button_label_salvar_registro">Salvar</string>
+    <string name="button_label_cancelar_registro">Descartar</string>
 
     <!-- amostra cadastro general data -->
 

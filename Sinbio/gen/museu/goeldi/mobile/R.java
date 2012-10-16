@@ -10,6 +10,9 @@ package museu.goeldi.mobile;
 public final class R {
     public static final class attr {
     }
+    public static final class color {
+        public static final int whiteness=0x7f060000;
+    }
     public static final class drawable {
         public static final int background_color=0x7f020000;
         public static final int background_color_normal_rounded_full=0x7f020001;
@@ -20,74 +23,75 @@ public final class R {
         public static final int brackground_color_pressed=0x7f020006;
         public static final int button_color_switch_for_left_view=0x7f020007;
         public static final int button_color_switch_for_right_view=0x7f020008;
-        public static final int ic_action_search=0x7f020009;
-        public static final int ic_launcher=0x7f02000a;
-        public static final int ic_launcher_museu_goeldi_logo=0x7f02000b;
-        public static final int retro_divider_300px=0x7f02000c;
-        public static final int simple_retor_divider=0x7f02000d;
-        public static final int simple_retro_divider_150=0x7f02000e;
-        public static final int simple_retro_divider_300=0x7f02000f;
-        public static final int simple_retro_divider_500=0x7f020010;
+        public static final int button_salvar_green_full_rounded=0x7f020009;
+        public static final int ic_action_search=0x7f02000a;
+        public static final int ic_launcher=0x7f02000b;
+        public static final int ic_launcher_museu_goeldi_logo=0x7f02000c;
+        public static final int retro_divider_300px=0x7f02000d;
+        public static final int simple_retor_divider=0x7f02000e;
+        public static final int simple_retro_divider_150=0x7f02000f;
+        public static final int simple_retro_divider_300=0x7f020010;
+        public static final int simple_retro_divider_500=0x7f020011;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f07001f;
-        public static final int ScrollView1=0x7f070000;
-        public static final int TextView_acessar_editar_registro_amostra=0x7f070021;
-        public static final int TextView_cadastro_amostra_general_data_ATRATIVO=0x7f07002f;
-        public static final int TextView_cadastro_amostra_general_data_DATA_COLETA=0x7f070031;
-        public static final int TextView_cadastro_amostra_general_data_HORA_COLETA=0x7f070033;
-        public static final int TextView_cadastro_amostra_general_data_METODO=0x7f07002d;
-        public static final int TextView_cadastro_amostra_general_data_PROJETO=0x7f070029;
-        public static final int TextView_criar_registro_amostra_general_data_ATRATIVO=0x7f07000c;
-        public static final int TextView_criar_registro_amostra_general_data_DATA_COLETA=0x7f07000e;
-        public static final int TextView_criar_registro_amostra_general_data_HORA_COLETA=0x7f070010;
-        public static final int TextView_criar_registro_amostra_general_data_METODO=0x7f07000a;
-        public static final int TextView_criar_registro_amostra_general_data_PROJETO=0x7f070006;
-        public static final int editText_cadastro_amostra_general_data_DATA_COLETA=0x7f070032;
-        public static final int editText_cadastro_amostra_general_data_HORA_COLETA=0x7f070034;
-        public static final int editText_cadastro_amostra_general_data_ID_AMOSTRA=0x7f070026;
-        public static final int editText_cadastro_amostra_general_data_LATITUDE=0x7f070036;
-        public static final int editText_cadastro_amostra_general_data_LONGITUDE=0x7f070038;
-        public static final int editText_criar_registro_amostra_general_data_DATA_COLETA=0x7f07000f;
-        public static final int editText_criar_registro_amostra_general_data_HORA_COLETA=0x7f070011;
-        public static final int editText_criar_registro_amostra_general_data_ID_AMOSTRA=0x7f070003;
-        public static final int editText_criar_registro_amostra_general_data_LATITUDE=0x7f070015;
-        public static final int editText_criar_registro_amostra_general_data_LONGITUDE=0x7f070017;
-        public static final int menu_settings=0x7f070039;
-        public static final int scrollView1=0x7f070024;
-        public static final int spinner_cadastro_amostra_general_data_ATRATIVO=0x7f070030;
-        public static final int spinner_cadastro_amostra_general_data_EXPEDICAO=0x7f070028;
-        public static final int spinner_cadastro_amostra_general_data_METODO=0x7f07002e;
-        public static final int spinner_cadastro_amostra_general_data_PROJETO=0x7f07002a;
-        public static final int spinner_cadastro_amostra_general_data_PROTOCOLO=0x7f07002c;
-        public static final int spinner_criar_registro_amostra_general_data_ATRATIVO=0x7f07000d;
-        public static final int spinner_criar_registro_amostra_general_data_EXPEDICAO=0x7f070005;
-        public static final int spinner_criar_registro_amostra_general_data_METODO=0x7f07000b;
-        public static final int spinner_criar_registro_amostra_general_data_PROJETO=0x7f070007;
-        public static final int spinner_criar_registro_amostra_general_data_PROTOCOLO=0x7f070009;
-        public static final int textView2=0x7f070022;
-        public static final int textView3=0x7f070023;
-        public static final int textView_acessar_criar_registro_amostra=0x7f070020;
-        public static final int textView_cadastro_amostra_general_data_EXPEDICAO=0x7f070027;
-        public static final int textView_cadastro_amostra_general_data_ID_AMOSTRA=0x7f070025;
-        public static final int textView_cadastro_amostra_general_data_LATITUDE=0x7f070035;
-        public static final int textView_cadastro_amostra_general_data_LONGITUDE=0x7f070037;
-        public static final int textView_cadastro_amostra_general_data_PROTOCOLO=0x7f07002b;
-        public static final int textView_criar_registro_amostra_general_data_DELIMITER_TITLE=0x7f070001;
-        public static final int textView_criar_registro_amostra_general_data_EXPEDICAO=0x7f070004;
-        public static final int textView_criar_registro_amostra_general_data_ID_AMOSTRA=0x7f070002;
-        public static final int textView_criar_registro_amostra_general_data_LATITUDE=0x7f070014;
-        public static final int textView_criar_registro_amostra_general_data_LONGITUDE=0x7f070016;
-        public static final int textView_criar_registro_amostra_general_data_PROTOCOLO=0x7f070008;
-        public static final int textView_criar_registro_amostra_localizacao_da_amostra_DELIMITER_TITLE=0x7f070013;
-        public static final int textView_left=0x7f07001c;
-        public static final int textView_right=0x7f07001d;
-        public static final int viewFlipper_registro_amostra_fragmented=0x7f070018;
-        public static final int viewStub1=0x7f07001e;
-        public static final int viewStub_loader_criar_registro_amostra_screen_one=0x7f070019;
-        public static final int viewStub_loader_criar_registro_amostra_screen_three=0x7f07001b;
-        public static final int viewStub_loader_criar_registro_amostra_screen_two=0x7f07001a;
-        public static final int viewStub_tela_variaveis_metodo_selecionado=0x7f070012;
+        public static final int LinearLayout1=0x7f080018;
+        public static final int ScrollView1=0x7f080000;
+        public static final int TextView_acessar_editar_registro_amostra=0x7f080021;
+        public static final int TextView_cadastro_amostra_general_data_ATRATIVO=0x7f08002f;
+        public static final int TextView_cadastro_amostra_general_data_DATA_COLETA=0x7f080031;
+        public static final int TextView_cadastro_amostra_general_data_HORA_COLETA=0x7f080033;
+        public static final int TextView_cadastro_amostra_general_data_METODO=0x7f08002d;
+        public static final int TextView_cadastro_amostra_general_data_PROJETO=0x7f080029;
+        public static final int TextView_criar_registro_amostra_general_data_ATRATIVO=0x7f08000c;
+        public static final int TextView_criar_registro_amostra_general_data_DATA_COLETA=0x7f08000e;
+        public static final int TextView_criar_registro_amostra_general_data_HORA_COLETA=0x7f080010;
+        public static final int TextView_criar_registro_amostra_general_data_METODO=0x7f08000a;
+        public static final int TextView_criar_registro_amostra_general_data_PROJETO=0x7f080006;
+        public static final int editText_cadastro_amostra_general_data_DATA_COLETA=0x7f080032;
+        public static final int editText_cadastro_amostra_general_data_HORA_COLETA=0x7f080034;
+        public static final int editText_cadastro_amostra_general_data_ID_AMOSTRA=0x7f080026;
+        public static final int editText_cadastro_amostra_general_data_LATITUDE=0x7f080036;
+        public static final int editText_cadastro_amostra_general_data_LONGITUDE=0x7f080038;
+        public static final int editText_criar_registro_amostra_general_data_DATA_COLETA=0x7f08000f;
+        public static final int editText_criar_registro_amostra_general_data_HORA_COLETA=0x7f080011;
+        public static final int editText_criar_registro_amostra_general_data_ID_AMOSTRA=0x7f080003;
+        public static final int editText_criar_registro_amostra_general_data_LATITUDE=0x7f080015;
+        public static final int editText_criar_registro_amostra_general_data_LONGITUDE=0x7f080017;
+        public static final int menu_settings=0x7f080039;
+        public static final int scrollView1=0x7f080024;
+        public static final int spinner_cadastro_amostra_general_data_ATRATIVO=0x7f080030;
+        public static final int spinner_cadastro_amostra_general_data_EXPEDICAO=0x7f080028;
+        public static final int spinner_cadastro_amostra_general_data_METODO=0x7f08002e;
+        public static final int spinner_cadastro_amostra_general_data_PROJETO=0x7f08002a;
+        public static final int spinner_cadastro_amostra_general_data_PROTOCOLO=0x7f08002c;
+        public static final int spinner_criar_registro_amostra_general_data_ATRATIVO=0x7f08000d;
+        public static final int spinner_criar_registro_amostra_general_data_EXPEDICAO=0x7f080005;
+        public static final int spinner_criar_registro_amostra_general_data_METODO=0x7f08000b;
+        public static final int spinner_criar_registro_amostra_general_data_PROJETO=0x7f080007;
+        public static final int spinner_criar_registro_amostra_general_data_PROTOCOLO=0x7f080009;
+        public static final int textView2=0x7f080022;
+        public static final int textView3=0x7f080023;
+        public static final int textView_acessar_criar_registro_amostra=0x7f080020;
+        public static final int textView_cadastro_amostra_general_data_EXPEDICAO=0x7f080027;
+        public static final int textView_cadastro_amostra_general_data_ID_AMOSTRA=0x7f080025;
+        public static final int textView_cadastro_amostra_general_data_LATITUDE=0x7f080035;
+        public static final int textView_cadastro_amostra_general_data_LONGITUDE=0x7f080037;
+        public static final int textView_cadastro_amostra_general_data_PROTOCOLO=0x7f08002b;
+        public static final int textView_criar_registro_amostra_general_data_DELIMITER_TITLE=0x7f080001;
+        public static final int textView_criar_registro_amostra_general_data_EXPEDICAO=0x7f080004;
+        public static final int textView_criar_registro_amostra_general_data_ID_AMOSTRA=0x7f080002;
+        public static final int textView_criar_registro_amostra_general_data_LATITUDE=0x7f080014;
+        public static final int textView_criar_registro_amostra_general_data_LONGITUDE=0x7f080016;
+        public static final int textView_criar_registro_amostra_general_data_PROTOCOLO=0x7f080008;
+        public static final int textView_criar_registro_amostra_localizacao_da_amostra_DELIMITER_TITLE=0x7f080013;
+        public static final int textView_descartar_registro=0x7f08001d;
+        public static final int textView_salvar_registro=0x7f08001e;
+        public static final int viewFlipper_registro_amostra_fragmented=0x7f080019;
+        public static final int viewStub1=0x7f08001f;
+        public static final int viewStub_loader_criar_registro_amostra_screen_one=0x7f08001a;
+        public static final int viewStub_loader_criar_registro_amostra_screen_three=0x7f08001c;
+        public static final int viewStub_loader_criar_registro_amostra_screen_two=0x7f08001b;
+        public static final int viewStub_tela_variaveis_metodo_selecionado=0x7f080012;
     }
     public static final class layout {
         public static final int activity_criar_registro_amostra=0x7f030000;
@@ -102,12 +106,12 @@ public final class R {
         public static final int old_cadastro_amostra_localizacao_da_amostra=0x7f030009;
     }
     public static final class menu {
-        public static final int activity_cadastro_amostra=0x7f060000;
-        public static final int activity_general_data=0x7f060001;
-        public static final int activity_localization=0x7f060002;
-        public static final int activity_main=0x7f060003;
-        public static final int activity_swipe_criar_registro_amostra=0x7f060004;
-        public static final int activity_vizualizar_amostras=0x7f060005;
+        public static final int activity_cadastro_amostra=0x7f070000;
+        public static final int activity_general_data=0x7f070001;
+        public static final int activity_localization=0x7f070002;
+        public static final int activity_main=0x7f070003;
+        public static final int activity_swipe_criar_registro_amostra=0x7f070004;
+        public static final int activity_vizualizar_amostras=0x7f070005;
     }
     public static final class string {
         /**  android app default 
@@ -119,23 +123,27 @@ public final class R {
         /**  default labels 
          */
         public static final int button=0x7f040009;
-        public static final int cadastro_amostra_general_data_ATRATIVO=0x7f040015;
-        public static final int cadastro_amostra_general_data_DATA_COLETA=0x7f040016;
+        public static final int button_label_cancelar_registro=0x7f04000d;
+        /**  buttons labels 
+         */
+        public static final int button_label_salvar_registro=0x7f04000c;
+        public static final int cadastro_amostra_general_data_ATRATIVO=0x7f040017;
+        public static final int cadastro_amostra_general_data_DATA_COLETA=0x7f040018;
         /**  amostra cadastro general data 
          */
-        public static final int cadastro_amostra_general_data_DELIMITER_TITLE=0x7f04000c;
-        public static final int cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_ONE=0x7f04000d;
-        public static final int cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_THREE=0x7f04000f;
-        public static final int cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_TWO=0x7f04000e;
-        public static final int cadastro_amostra_general_data_EXPEDICAO=0x7f040011;
-        public static final int cadastro_amostra_general_data_HORA_COLETA=0x7f040017;
-        public static final int cadastro_amostra_general_data_ID_AMOSTRA=0x7f040010;
-        public static final int cadastro_amostra_general_data_METODO=0x7f040014;
-        public static final int cadastro_amostra_general_data_PROJETO=0x7f040012;
-        public static final int cadastro_amostra_general_data_PROTOCOLO=0x7f040013;
-        public static final int cadastro_amostra_localizacao_da_amostra_DELIMITER_TITLE=0x7f040019;
-        public static final int cadastro_amostra_localizacao_da_amostra_LATITUDE=0x7f04001a;
-        public static final int cadastro_amostra_localizacao_da_amostra_LONGITUDE=0x7f04001b;
+        public static final int cadastro_amostra_general_data_DELIMITER_TITLE=0x7f04000e;
+        public static final int cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_ONE=0x7f04000f;
+        public static final int cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_THREE=0x7f040011;
+        public static final int cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_TWO=0x7f040010;
+        public static final int cadastro_amostra_general_data_EXPEDICAO=0x7f040013;
+        public static final int cadastro_amostra_general_data_HORA_COLETA=0x7f040019;
+        public static final int cadastro_amostra_general_data_ID_AMOSTRA=0x7f040012;
+        public static final int cadastro_amostra_general_data_METODO=0x7f040016;
+        public static final int cadastro_amostra_general_data_PROJETO=0x7f040014;
+        public static final int cadastro_amostra_general_data_PROTOCOLO=0x7f040015;
+        public static final int cadastro_amostra_localizacao_da_amostra_DELIMITER_TITLE=0x7f04001b;
+        public static final int cadastro_amostra_localizacao_da_amostra_LATITUDE=0x7f04001c;
+        public static final int cadastro_amostra_localizacao_da_amostra_LONGITUDE=0x7f04001d;
         public static final int hello_world=0x7f040002;
         public static final int menu_settings=0x7f040003;
         /**  main menu 
@@ -146,12 +154,12 @@ public final class R {
         public static final int screen_possible_stuff_2=0x7f040008;
         public static final int textentry=0x7f04000b;
         public static final int textview=0x7f04000a;
-        public static final int title_activity_cadastro_amostra=0x7f040018;
-        public static final int title_activity_general_data=0x7f04001c;
-        public static final int title_activity_localization=0x7f04001d;
+        public static final int title_activity_cadastro_amostra=0x7f04001a;
+        public static final int title_activity_general_data=0x7f04001e;
+        public static final int title_activity_localization=0x7f04001f;
         public static final int title_activity_main=0x7f040004;
-        public static final int title_activity_swipe_criar_registro_amostra=0x7f04001f;
-        public static final int title_activity_vizualizar_amostras=0x7f04001e;
+        public static final int title_activity_swipe_criar_registro_amostra=0x7f040021;
+        public static final int title_activity_vizualizar_amostras=0x7f040020;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;
