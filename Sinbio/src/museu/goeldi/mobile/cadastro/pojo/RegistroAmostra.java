@@ -1,4 +1,4 @@
-package main;
+package museu.goeldi.mobile.cadastro.pojo;
 
 import java.util.ArrayList;
 import java.util.HashMap;

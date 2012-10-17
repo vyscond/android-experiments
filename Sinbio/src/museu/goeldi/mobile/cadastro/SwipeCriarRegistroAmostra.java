@@ -1,7 +1,7 @@
 package museu.goeldi.mobile.cadastro;
 
 import museu.goeldi.mobile.R;
-import museu.goeldi.mobile.cadastro.SimpleGestureFilter.SimpleGestureListener;
+import museu.goeldi.mobile.simple.swipe.SimpleGestureFilter;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 public class SwipeCriarRegistroAmostra extends Activity implements
-		SimpleGestureListener {
+		museu.goeldi.mobile.simple.swipe.SimpleGestureListener {
 
 	private SimpleGestureFilter detector;
 

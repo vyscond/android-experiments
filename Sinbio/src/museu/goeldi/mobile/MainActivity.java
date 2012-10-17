@@ -1,19 +1,14 @@
 package museu.goeldi.mobile;
 
-import museu.goeldi.mobile.cadastro.CriarRegistroAmostra;
 import museu.goeldi.mobile.cadastro.EditarRegistroAmostra;
-import museu.goeldi.mobile.cadastro.SwipeCriarRegistroAmostra;
+import museu.goeldi.mobile.cadastro.NewSimpleSwipeCriarRegistroAmostra;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
 
 public class MainActivity extends Activity {
@@ -67,8 +62,10 @@ public class MainActivity extends Activity {
     
     private void acessar_criar_registro_amostra_screen_onClick(View v)
     {
-    	//this.screen_criar_registro_amostra = new Intent(this , CriarRegistroAmostra.class);
-    	this.screen_criar_registro_amostra = new Intent(this , SwipeCriarRegistroAmostra.class);
+    	//this.screen_criar_registro_amostra = new Intent(this , CriarRegistroAmostra.class); //---working
+    	//this.screen_criar_registro_amostra = new Intent(this , SwipeCriarRegistroAmostra.class); //---working
+    	//this.screen_criar_registro_amostra = new Intent(this , SimpleSwipeCriarRegistro.class); //---working
+    	this.screen_criar_registro_amostra = new Intent(this , NewSimpleSwipeCriarRegistroAmostra.class); //---working
     	this.startActivityAndGetBackToMe(this.screen_criar_registro_amostra);
     	
     }
