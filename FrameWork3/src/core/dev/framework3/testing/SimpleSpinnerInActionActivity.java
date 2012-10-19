@@ -3,7 +3,7 @@ package core.dev.framework3.testing;
 import core.dev.framework3.R;
 import core.dev.framework3.R.layout;
 import core.dev.framework3.R.menu;
-import core.framework.generics.SimpleSpinner;
+import core.framework.generics.adaptableviews.SimpleSpinner;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;

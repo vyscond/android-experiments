@@ -8,3 +8,6 @@
 
 + Gesture classes created by : http://android-journey.blogspot.com.br/2010/01/android-gestures.html
 
+# 19 / 10 / 2012
+
++ Generic structs for Flippering Views on FrameWork version 3!

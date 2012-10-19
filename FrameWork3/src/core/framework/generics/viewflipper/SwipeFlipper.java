@@ -1,7 +1,8 @@
-package museu.goeldi.mobile.simple.viewflipper;
+package core.framework.generics.viewflipper;
 
-import museu.goeldi.mobile.simple.swipe.SimpleGestureFilter;
-import museu.goeldi.mobile.simple.swipe.SimpleGestureListener;
+import core.framework.generics.viewflipper.base.SimpleViewFlipper;
+import core.framework.generics.viewflipper.listeners.SimpleGestureFilter;
+import core.framework.generics.viewflipper.listeners.SimpleGestureListener;
 import android.app.Activity;
 import android.widget.ViewFlipper;
 
