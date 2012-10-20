@@ -1,5 +1,6 @@
 package main;
 
+import main.StupidXML.Tag;
 import nu.xom.Attribute;
 import nu.xom.Document;
 import nu.xom.Element;
@@ -10,33 +11,37 @@ public class Manager {
 
 	public static void main(String[] args) {
 
+	    StupidXML xml_manager = new StupidXML();
 		
-		Element root = new Element("root");
-		
-		root.appendChild("Hello World!");
-		
-		root.addAttribute(new Attribute("test_attrib", "his_value"));
-		
+	    Tag root = xml_manager.getNewTag();
+	    
+	    root.setTagName("root");
+	    
+	    root.addAttribute("test_1", "1");
+	    root.addAttribute("test_2", "2");
+	    
+	    Tag under_root = xml_manager.getNewTag();
+	    
+	    under_root.setTagName("under_root");
+	    
+	    root.addSubTag(under_root);
+	    
+	    Tag under_under_root = xml_manager.getNewTag();
+	    
+	    under_under_root.setTagName("under_all");
+	    
+	    under_under_root.setValue("Hoho");
+	    
+	    under_root.addSubTag(under_under_root);
+	    
+	    System.out.println(root.getXML());
+	    
 
-		
-		Element node2 = new Element("node2");
-		
-		node2.appendChild("beachy");
-		
-		root.appendChild(node2);
-		
-		Document doc = new Document(root);
-		
-		
-		
-		String result = doc.toXML();
-		
-		System.out.println(result.replaceAll(">", ">\n").replaceAll("<", "\n<"));
-		
-		
 		/* --------------------------------------- */
 		
+		RegistroAmostra r = new RegistroAmostra();
 		
+		r.toXML();
 
 	}
 

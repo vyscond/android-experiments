@@ -11,3 +11,9 @@
 # 19 / 10 / 2012
 
 + Generic structs for Flippering Views on FrameWork version 3!
+
+# 20 / 10 / 2012
+
++ StupidXML - was created
+
++ SINBIO - can persist text file to sdcard

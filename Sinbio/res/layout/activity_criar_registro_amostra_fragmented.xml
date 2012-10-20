@@ -21,19 +21,19 @@
                 android:id="@+id/viewStub_loader_criar_registro_amostra_screen_one"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout="@layout/activity_criar_registro_amostra_screen_one" />
+                android:layout="@layout/fragmented_view_01_criar_registro_amostra" />
 
             <ViewStub
                 android:id="@+id/viewStub_loader_criar_registro_amostra_screen_two"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout="@layout/activity_criar_registro_amostra_screen_two" />
+                android:layout="@layout/fragmented_view_02_criar_registro_amostra" />
 
             <ViewStub
                 android:id="@+id/viewStub_loader_criar_registro_amostra_screen_three"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout="@layout/activity_criar_registro_amostra_screen_three" />
+                android:layout="@layout/fragmented_view_03_criar_registro_amostra" />
         </ViewFlipper>
     </ScrollView>
 

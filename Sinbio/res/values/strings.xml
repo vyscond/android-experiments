@@ -53,5 +53,6 @@
     <string name="title_activity_swipe_criar_registro_amostra">SwipeCriarRegistroAmostra</string>
     <string name="title_activity_simple_swipe_criar_registro">SimpleSwipeCriarRegistro</string>
     <string name="title_activity_new_simple_swipe_criar_registro_amostra">NewSimpleSwipeCriarRegistroAmostra</string>
+    <string name="title_activity_criar_registro_amostra">CriarRegistroAmostra</string>
 
 </resources>
