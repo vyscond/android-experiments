@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
 		
 		gv.setAdapter(adapter);
 		
-		gv.setColumnWidth(3);
+		gv.setNumColumns ( 3 );
 		
 		/* --- The buttons
 		 * 

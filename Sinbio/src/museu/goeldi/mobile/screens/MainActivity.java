@@ -1,9 +1,6 @@
 package museu.goeldi.mobile.screens;
 
 import museu.goeldi.mobile.R;
-import museu.goeldi.mobile.R.id;
-import museu.goeldi.mobile.R.layout;
-import museu.goeldi.mobile.R.menu;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

@@ -25,6 +25,7 @@ public class SimpleSpinner extends Simple {
 	public void addItem( GenericItemList item )
 	{
 		this.adapter.addItem(item);
+		this.adapter.notifyDataSetChanged ( );
 	}
 	
 	public Spinner getSpinner()
