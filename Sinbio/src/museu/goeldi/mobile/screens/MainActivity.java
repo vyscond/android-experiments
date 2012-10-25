@@ -19,6 +19,8 @@ public class MainActivity extends Activity {
 	private Intent screen_criar_registro_amostra;
 	private Intent screen_editar_registro_amostra;
 	
+	public static final String __FLAG__ = "SINBIO";
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         

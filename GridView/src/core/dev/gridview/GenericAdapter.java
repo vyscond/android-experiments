@@ -20,6 +20,7 @@ public class GenericAdapter extends BaseAdapter {
 	public void addItem(GenericItemList item)
 	{
 		this.items.add(item);
+		
 	}
 	
 	public void removeItemByIndex( int position )

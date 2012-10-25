@@ -2,21 +2,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_color_normal_rounded_full"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The Album"
-        android:gravity="center_horizontal|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="Photos" 
+        android:gravity="center_horizontal"/>
 
-    <ScrollView
-        android:id="@+id/scrollView1"
+    <GridView
+        android:id="@+id/gridView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </ScrollView>
+        android:layout_height="wrap_content"
+        android:numColumns="3" >
+    </GridView>
 
 </LinearLayout>

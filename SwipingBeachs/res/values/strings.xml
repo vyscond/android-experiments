@@ -3,6 +3,6 @@
     <string name="app_name">SwipingBeachs</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">Swiping Beachs</string>
+    <string name="title_activity_main">CoreDev Swiping Beachs</string>
 
 </resources>

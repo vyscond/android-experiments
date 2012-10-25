@@ -36,23 +36,27 @@ public class MainActivity extends Activity
             {
                 // TODO Auto-generated method stub
                 cam.takePictureSaveAs (  "oh_lawd.png" );
+            
+                try
+                {
+                    Uri uriSavedImage=Uri.fromFile(new File("/sdcard/SINBIO/oh_lawd.png"));
+                    ImageView iv = (ImageView) findViewById ( R.id.imageView1 );
+                    
+                    iv.setImageURI ( uriSavedImage );
+
+                }
+                catch ( Exception e )
+                {
+                    // TODO: handle exception
+                    Log.d ( "DummyCamm" , "ImgNotFound" );
+                }
                 
             }
+            
+            
         });
         
-        try
-        {
-            Uri uriSavedImage=Uri.fromFile(new File("/sdcard/SINBIO/oh_lawd.png"));
-            ImageView iv = (ImageView) findViewById ( R.id.imageView1 );
-            
-            iv.setImageURI ( uriSavedImage );
-
-        }
-        catch ( Exception e )
-        {
-            // TODO: handle exception
-            Log.d ( "DummyCamm" , "ImgNotFound" );
-        }
+       
         
     }
     

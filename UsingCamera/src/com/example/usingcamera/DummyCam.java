@@ -23,7 +23,7 @@ public class DummyCam
     
     private static final int CAPTURE_VIDEO_ACTIVITY_REQUEST_CODE = 200;
     
-    private static String    TAG                                 = "DummyCam";
+    private static final String    TAG                                 = "DummyCam";
     
     public static final int  MEDIA_TYPE_IMAGE                    = 1;
     

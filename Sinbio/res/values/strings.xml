@@ -35,6 +35,8 @@
     <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_ONE">Dados gerais</string>
     <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_TWO">Metodo</string>
     <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_THREE">Localização</string>
+    <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_FOUR">Galeria</string>
+    
     <string name="cadastro_amostra_general_data_ID_AMOSTRA">ID da amostra dado pelo coletor</string>
     <string name="cadastro_amostra_general_data_EXPEDICAO">Expedição</string>
     <string name="cadastro_amostra_general_data_PROJETO">Projeto</string>

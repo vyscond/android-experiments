@@ -3,7 +3,7 @@ package core.dev.framework3.testing;
 import android.view.View;
 import android.widget.TextView;
 import core.dev.framework3.R;
-import core.framework.generics.adaptableviews.adapters.GenericItemList;
+import core.framework.generics.composite.pojo.GenericItemList;
 
 public class PeopleItem extends GenericItemList {
 

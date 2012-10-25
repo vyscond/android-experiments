@@ -34,6 +34,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout="@layout/fragmented_view_03_criar_registro_amostra" />
+            
+            <ViewStub
+                android:id="@+id/viewStub_loader_criar_registro_amostra_screen_four"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout="@layout/fragmented_view_04_criar_registro_amostra" />
+            
         </ViewFlipper>
     </ScrollView>
 

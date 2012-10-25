@@ -17,3 +17,7 @@
 + StupidXML - was created
 
 + SINBIO - can persist text file to sdcard
+
+# 25 / 10 / 2012
+
++ News APPS .-.

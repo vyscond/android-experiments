@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import core.dev.framework3.R;
-import core.framework.generics.adaptableviews.SimpleListView;
-import core.framework.generics.adaptableviews.adapters.GenericItemList;
+import core.framework.generics.composite.SimpleListView;
+import core.framework.generics.composite.pojo.GenericItemList;
 
 public class SimpleListViewInActionActivity extends Activity {
 
