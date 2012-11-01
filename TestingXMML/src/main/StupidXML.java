@@ -1,5 +1,7 @@
 package main;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -8,6 +10,14 @@ public class StupidXML
     public Tag getNewTag( )
     {
         return new Tag();
+    }
+    
+    public Tag buildTag(String string)
+    {
+        
+        ArrayList < String > rootTag = new ArrayList < String > ( );
+        
+        return null;
     }
     
     public class Tag{

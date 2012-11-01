@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        tools:ignore="UselessParent" >
+
+        <TextView
+            android:id="@+id/TextView_capturar_imagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_color_green_rounded_full"
+            android:gravity="center"
+            android:text="Tirar Foto"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="30dp" />
+
+        <GridView
+            android:id="@+id/gridView_registro_amostra_galeria_de_fotos"
+            android:layout_width="match_parent"
+            android:layout_height="309dp"
+            android:layout_weight="1.00"
+            android:numColumns="3" >
+        </GridView>
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:gravity="fill"
+            android:orientation="vertical"
+            android:padding="15dp" >
+
+            <TextView
+                android:id="@+id/textView_descartar_fotos"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/button_color_switch_for_left_view"
+                android:gravity="center"
+                android:text="Descartar"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:gravity="fill"
+            android:orientation="vertical"
+            android:padding="15dp" >
+
+            <TextView
+                android:id="@+id/textView_salvar_fotos"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/button_salvar_green_full_rounded"
+                android:gravity="center"
+                android:text="Salvar"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

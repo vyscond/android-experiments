@@ -3,7 +3,6 @@ package core.dev.rawphotoalbum.manager.engine;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.util.Collection;
 import java.util.Vector;
 
 import android.os.Environment;
@@ -12,67 +11,71 @@ import android.util.Log;
 public class SdcardManager
 {
     
-    private String base_path = Environment.getExternalStorageDirectory ( ).getPath ( );
+    private File working_path = Environment.getExternalStorageDirectory ( );
     
-    public String getAbsolutePathFor ( String folder_path )
+    public String getWorkingDirectoryAbsolutePath ( )
     {
-        String absolute_path;
+        return this.working_path.getAbsolutePath ( );
+    }
+    
+    public String getWorkingDirectoryPath ( )
+    {
+        return this.working_path.getName ( );
+    }
+    
+    public void changeDirectory ( String folderName )
+    {
+        this.working_path = new File ( this.working_path.getAbsolutePath ( ) + "/" + folderName );
         
-        if ( folder_path.charAt ( folder_path.length ( ) - 1 ) == '/' )
+        if ( this.working_path == null )
         {
-            absolute_path = this.base_path + "/" + folder_path;
+            this.echo ( "Cant reach new Path" );
         }
+        
         else
         {
-            absolute_path = this.base_path + "/" + folder_path + "/";
+            this.echo ( "New Path reached" );
         }
-        
-        return absolute_path;
     }
     
-    public File[] fetchPhotosInFileFormatAt ( String folder_path )
+    public Vector < String > toVectorPictures ( )
+    {
+        Vector < String > folders = new Vector < String > ( );
+        
+        for ( File file : this.working_path.listFiles ( ) )
+        {
+            if ( file.isDirectory ( ) )
+            {
+                folders.add ( file.getName ( ) );
+            }
+            
+        }
+        
+        return folders;
+    }
+    
+    public Vector < File > getPictures ( )
     {
         
-        String absolute_path = this.getAbsolutePathFor ( folder_path );
-        
-        this.echo ( "Trying to load images from : " + absolute_path );
-        
-        File[] allMatchingFilesByFilter = this.listFilesAsArray ( new File ( absolute_path ) , this.imageFilters ( ) ,
-                - 1 );
-        
-        return allMatchingFilesByFilter;
+        return this.getVectorPictures ( working_path , this.getImageFilters ( ) , - 1 );
     }
     
-    public String[] fetchPhotosAbsolutePathsAt ( String folder_path )
+    public Vector < String > getPicturesAbsolutePath ( )
     {
         
-        String absolute_path;
+        Vector < File > allMatchingFilesByFilter = this.getPictures ( );
         
-        if ( folder_path.charAt ( folder_path.length ( ) - 1 ) == '/' )
+        Vector < String > picturesPath = new Vector < String > ( );
+        
+        for ( File file : allMatchingFilesByFilter )
         {
-            absolute_path = this.base_path + "/" + folder_path;
-        }
-        else
-        {
-            absolute_path = this.base_path + "/" + folder_path + "/";
+            picturesPath.add ( file.getAbsolutePath ( ) );
         }
         
-        this.echo ( "Trying to load images from : " + absolute_path );
-        
-        File[] allMatchingFilesByFilter = this.listFilesAsArray ( new File ( absolute_path ) , this.imageFilters ( ) ,
-                - 1 );
-        
-        String[] photo_path = new String[ allMatchingFilesByFilter.length ];
-        
-        for ( int i = 0 ; i < allMatchingFilesByFilter.length ; i++ )
-        {
-            photo_path [ i ] = allMatchingFilesByFilter [ i ].getAbsolutePath ( );
-        }
-        
-        return photo_path;
+        return picturesPath;
     }
     
-    private FilenameFilter[] imageFilters ( )
+    private FilenameFilter[] getImageFilters ( )
     {
         this.echo ( "Generanting FilterList for images :D" );
         
@@ -104,22 +107,7 @@ public class SdcardManager
         return filter;
     }
     
-    private File[] listFilesAsArray ( File directory , FilenameFilter[] filter , int recurse )
-    {
-        this.echo ( "Generating a Collection of files with filter procedures" );
-        
-        Collection < File > files = listFiles ( directory , filter , recurse );
-        
-        this.echo ( "Collection was generated with success" );
-        
-        File[] arr = new File[ files.size ( ) ];
-        
-        this.echo ( "Returning Collection as a File[]" );
-        
-        return files.toArray ( arr );
-    }
-    
-    public Collection < File > listFiles ( File directory , FilenameFilter[] filter , int recurse )
+    public Vector < File > getVectorPictures ( File directory , FilenameFilter[] filter , int recurse )
     {
         
         this.echo ( "Build a Collection of Files (list)" );
@@ -150,7 +138,9 @@ public class SdcardManager
                     {
                         
                         this.echo ( "File is matched with the extension!" );
+                        
                         files.add ( entry );
+                        
                         this.echo ( "File is stored" );
                         
                         // Log.v ( "ImageViewFlipper" , "Added: " +
@@ -163,7 +153,7 @@ public class SdcardManager
                 if ( ( recurse <= - 1 ) || ( recurse > 0 && entry.isDirectory ( ) ) )
                 {
                     recurse-- ;
-                    files.addAll ( listFiles ( entry , filter , recurse ) );
+                    files.addAll ( this.getVectorPictures ( entry , filter , recurse ) );
                     recurse++ ;
                 }
             }

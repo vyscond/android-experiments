@@ -10,7 +10,7 @@
     android:dividerPadding="25dp"
     android:gravity="center_vertical"
     android:orientation="vertical" >
-
+
     <TextView
         android:id="@+id/textView_acessar_criar_registro_amostra"
         android:layout_width="match_parent"
@@ -24,7 +24,21 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
         android:textSize="28dp" />
-
+
+    <TextView
+        android:id="@+id/textView_acessar_fotos_registro_amostra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/background_color_normal_rounded_top_right_bottom_left"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:text="@string/screen_fotos_amostra"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"
+        android:textSize="28dp" />
+
     <TextView
         android:id="@+id/TextView_acessar_editar_registro_amostra"
         android:layout_width="match_parent"
@@ -38,21 +52,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
         android:textSize="28dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/background_color_normal_rounded_top_right_bottom_left"
-        android:gravity="center"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
-        android:text="@string/screen_possible_stuff_1"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ffffff"
-        android:textSize="28dp" />
-
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"

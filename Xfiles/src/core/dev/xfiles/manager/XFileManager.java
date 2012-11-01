@@ -10,12 +10,12 @@ import core.dev.xfiles.R;
 import core.dev.xfiles.composite.SimpleListView;
 import core.dev.xfiles.composite.pojo.XFile;
 import core.dev.xfiles.composite.pojo.XFolder;
-import core.dev.xfiles.manager.engine.Xfiles;
+import core.dev.xfiles.manager.engine.SdcardFileManager;
 
 public class XFileManager
 {
     
-    private Xfiles           fileManager;
+    private SdcardFileManager           fileManager;
     
     private SimpleListView   simpleListView;
     
@@ -27,7 +27,7 @@ public class XFileManager
     {
         this.simpleListView = new SimpleListView ( context , listView );
         
-        this.fileManager = new Xfiles ( );
+        this.fileManager = new SdcardFileManager ( );
     }
     
     public String getActualPathString ( )

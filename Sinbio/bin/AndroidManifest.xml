@@ -13,9 +13,9 @@
         android:configChanges="screenSize|orientation"
     -->
 
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:icon="@drawable/ic_launcher_museu_goeldi_logo"
         android:label="@string/app_name"
@@ -50,9 +50,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".screens.SwipeCriarRegistroAmostra"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_swipe_criar_registro_amostra" >
+            android:name=".screens.TakePicActivity"
+            android:label="@string/title_activity_take_pic" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -60,26 +59,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".screens.SimpleSwipeCriarRegistro"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_simple_swipe_criar_registro" >
+            android:name=".screens.FotosRegistroAmostra"
+            android:label="@string/title_activity_fotos_registro_amostro" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".screens.NewSimpleSwipeCriarRegistroAmostraistroAmostra"
-            android:configChanges="screenSize|orientation"
-            android:label="@string/title_activity_new_simple_swipe_criar_registro_amostra" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        
     </application>
 
 </manifest>

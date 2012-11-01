@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout_maintainregister"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- TAB BUTTON -->
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ViewStub
+            android:id="@+id/viewStub_maintain_register_edit_screen_selector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout="@layout/edit_screen_selector"
+             />
+
+        <ViewStub
+            android:id="@+id/viewStub_maintain_register_edit_screen_viewer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout="@layout/edit_screen_viewer"
+             />
+    </ViewFlipper>
+
+    <!-- SAVE BUTTON -->
+
+</LinearLayout>

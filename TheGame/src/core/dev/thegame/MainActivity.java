@@ -2,82 +2,62 @@
 package core.dev.thegame;
 
 import org.andengine.engine.camera.Camera;
-import org.andengine.engine.handler.IUpdateHandler;
-import org.andengine.engine.handler.timer.ITimerCallback;
-import org.andengine.engine.handler.timer.TimerHandler;
 import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
-import org.andengine.entity.scene.IOnSceneTouchListener;
+import org.andengine.entity.scene.ITouchArea;
 import org.andengine.entity.scene.Scene;
-import org.andengine.entity.scene.background.Background;
-import org.andengine.entity.text.Text;
-import org.andengine.entity.util.FPSLogger;
+import org.andengine.entity.sprite.Sprite;
 import org.andengine.input.touch.TouchEvent;
+import org.andengine.opengl.texture.Texture;
+import org.andengine.opengl.texture.TextureOptions;
+import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
+import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
+import org.andengine.opengl.texture.region.TextureRegion;
+import org.andengine.opengl.texture.region.TextureRegionFactory;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
 
 import android.util.Log;
 import android.view.Display;
-import core.dev.thegame.coregame.CorePlayer;
-import core.dev.thegame.coregame.CoreText;
+import android.widget.Toast;
+import core.dev.thegame.coregame.joystick.JoystickButton;
+import core.dev.thegame.coregame.sprite.CorePlayer;
+import core.dev.thegame.stages.PhaseOne;
 
 public class MainActivity extends SimpleBaseGameActivity
 {
     
-    static int               CAMERA_WIDTH  = 800;
+    public static int CAMERA_WIDTH  = 800;
     
-    static int               CAMERA_HEIGHT = 480;
+    public static int CAMERA_HEIGHT = 480;
     
     /* --- Touch Axys --- */
 
-    private static int       TOUCH_X;
-    
-    private static int       TOUCH_Y;
-    
-    private static FPSLogger FPS;
-    
-    public Camera            mCamera;
+    public Camera     mCamera;
     
     // A reference to the current scene
-    public Scene             mCurrentScene;
-    
-    CoreText                 Label;
-    
-    private static final int TEXT_AXYS     = 1;
-    
-    private static final int TEXT_FPS      = 2;
-    
-    private static final int TEXT_RUNT     = 3;
-    
-    private static int       FPS_COUNTER   = 0;
-    
-    private static float     RUNNING_TIME  = 0;
-    
-    CorePlayer               player_1;
+    public Scene      mCurrentScene;
     
     public EngineOptions onCreateEngineOptions ( )
     {
         
         final Display display = getWindowManager ( ).getDefaultDisplay ( );
+        
         CAMERA_WIDTH = display.getWidth ( );
         CAMERA_HEIGHT = display.getHeight ( );
         
         mCamera = new Camera ( 0 , 0 , CAMERA_WIDTH , CAMERA_HEIGHT );
         
-        return new EngineOptions ( true , ScreenOrientation.LANDSCAPE_SENSOR , new RatioResolutionPolicy (
-                CAMERA_WIDTH , CAMERA_HEIGHT ) , mCamera );
+        return new EngineOptions ( true , ScreenOrientation.LANDSCAPE_SENSOR , new RatioResolutionPolicy ( CAMERA_WIDTH , CAMERA_HEIGHT ) , mCamera );
         
     }
     
     @ Override
     protected void onCreateResources ( )
     {
+        Log.d ( "TheGame" , "onCreateResources" );
+        
         // TODO Auto-generated method stub
-        Log.d ( "TheGame" , "CycleThread???" );
-        
-        player_1 = new CorePlayer ( this );
-        
-        player_1.onLoadResources ( mEngine );
         
     }
     
@@ -85,85 +65,61 @@ public class MainActivity extends SimpleBaseGameActivity
     protected Scene onCreateScene ( )
     {
         
-        Log.d ( "TheGame" , "Creating a Pen" );
+        Log.d ( "TheGame" , "onCreateScene" );
         
-        Label = new CoreText ( this );
+        CorePlayer maNigga = new CorePlayer ( this , "gfx/" , 300 , 300 , TextureOptions.BILINEAR_PREMULTIPLYALPHA , "megaman_300_300.jpg" , 300 , 300 );
         
-        FPS = new FPSLogger ( );
+        //JoystickButton b = new JoystickButton ( this , "gfx/controller/" , 48 , 48 , TextureOptions.BILINEAR_PREMULTIPLYALPHA , "PS3_x_48_48.png" , 48 , 48 );
         
-        mEngine.registerUpdateHandler ( new IUpdateHandler ( )
+        
+        
+        mCurrentScene = new PhaseOne ( this );
+        
+        mCurrentScene.attachChild ( maNigga.getSprite ( ) );
+        
+        
+        
+        /* Button :D */
+        
+        
+        BitmapTextureAtlasTextureRegionFactory.setAssetBasePath ( "gfx/controller/" );
+        
+        BitmapTextureAtlas bitmapTextureAtlas = new BitmapTextureAtlas ( this.getTextureManager ( ) , 48 , 48 , TextureOptions.BILINEAR );
+        
+        bitmapTextureAtlas.load ( );
+        
+        TextureRegion textureRegion = BitmapTextureAtlasTextureRegionFactory.createFromAsset ( bitmapTextureAtlas , this , "PS3_x_48_48.png" , 0 , 0 );
+        
+        Sprite p = new Sprite ( 48 , 48 , textureRegion , this.getVertexBufferObjectManager ( ) )
         {
-            
-            public void reset ( )
-            {
-                // TODO Auto-generated method stub
-                
+            @Override
+            public boolean onAreaTouched(final TouchEvent pSceneTouchEvent, final float pTouchAreaLocalX, final float pTouchAreaLocalY) {
+                //Insert Code Here
+                Log.d ( "TheGame" , "You touched a button :D" );
+                return true;
             }
-            
-            public void onUpdate ( float pSecondsElapsed )
-            {
-                // TODO Auto-generated method stub
-                
-                FPS_COUNTER = (int) FPS.getFPS ( );
-                // RUNNING_TIME = pSecondsElapsed / 60 ;
-            }
-        } );
+        };
         
-        mCurrentScene = new Scene ( );
         
-        mCurrentScene.setBackground ( new Background ( 0f , 0f , 0f ) );
+        p.setPosition ( 750f , 320f );
         
-        Text text_for_axys = this.Label.getText ( "X :         \nY :          " , Label.NORMAL_FONT , 20 , 20 , 25 );
+        p.setScale ( 5f );
         
-        text_for_axys.setTag ( TEXT_AXYS );
+        mCurrentScene.registerTouchArea( p );
+        mCurrentScene.setTouchAreaBindingOnActionDownEnabled(true);
+        mCurrentScene.attachChild( p );
         
-        mCurrentScene.attachChild ( text_for_axys );
+        Sprite button = new CorePlayer ( this , "gfx/controller/" , 48 , 48 , TextureOptions.BILINEAR_PREMULTIPLYALPHA , "PS3_circle_48_48.png" , 48 , 48 ).getSprite ( );
         
-        Text text_for_fps = this.Label.getText ( "FPS :    " , Label.NORMAL_FONT , 20 , CAMERA_HEIGHT - 100 , 25 );
+        button.setPosition ( 890f , 460f );
         
-        text_for_fps.setTag ( TEXT_FPS );
+        button.setScale ( 5f );
         
-        mCurrentScene.attachChild ( text_for_fps );
+        mCurrentScene.registerTouchArea( button );
+        mCurrentScene.setTouchAreaBindingOnActionDownEnabled(true);
+        mCurrentScene.attachChild( button );
         
-        // Text text_for_running_time = this.Label.getText (
-        // "RUNNING TIME :                      " , Label.NORMAL_FONT , 20 ,
-        // CAMERA_HEIGHT - 200 , 25 );
         
-        // text_for_running_time.setTag ( TEXT_RUNT );
-        
-        // mCurrentScene.attachChild ( text_for_running_time );
-        
-        mCurrentScene.setOnSceneTouchListener ( new IOnSceneTouchListener ( )
-        {
-            
-            public boolean onSceneTouchEvent ( Scene pScene , TouchEvent pSceneTouchEvent )
-            {
-                // TODO Auto-generated method stub
-                
-                TOUCH_X = (int) pSceneTouchEvent.getX ( );
-                
-                TOUCH_Y = (int) pSceneTouchEvent.getY ( );
-                
-                Log.d ( "TheGame" , "X : " + TOUCH_X + "\nY : " + TOUCH_Y );
-                
-                return false;
-            }
-        } );
-        
-        mCurrentScene.registerUpdateHandler ( new TimerHandler ( 1 / 20.0f , true , new ITimerCallback ( )
-        {
-            
-            public void onTimePassed ( final TimerHandler pTimerHandler )
-            {
-                
-                ( (Text) mCurrentScene.getChildByTag ( TEXT_AXYS ) ).setText ( "X : " + TOUCH_X + "/" + CAMERA_WIDTH
-                        + "\nY : " + TOUCH_Y + "/" + CAMERA_HEIGHT );
-                
-                ( (Text) mCurrentScene.getChildByTag ( TEXT_FPS ) ).setText ( "FPS : " + FPS_COUNTER );
-                // ( (Text) mCurrentScene.getChildByTag ( TEXT_RUNT ) ).setText
-                // ( "RUNNING TIME : "+RUNNING_TIME );
-            }
-        } ) );
         
         return mCurrentScene;
     }

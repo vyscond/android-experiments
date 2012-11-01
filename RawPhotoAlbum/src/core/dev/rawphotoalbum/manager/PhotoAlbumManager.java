@@ -1,10 +1,15 @@
 package core.dev.rawphotoalbum.manager;
 
 import java.io.File;
+import java.util.Vector;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.util.Log;
+import android.view.Display;
 import android.widget.GridView;
 import core.dev.rawphotoalbum.MainActivity;
 import core.dev.rawphotoalbum.composite.SimplePhotoAlbumView;
@@ -17,11 +22,9 @@ public class PhotoAlbumManager
     
     private final String class_in = "PhotoAlbumManager : ";
     
-    private SimplePhotoAlbumView photoAlbum;
-    
     private SdcardManager sdcardManager;
     
-    private String folder_path;
+    private SimplePhotoAlbumView photoAlbum;
     
     private int layout_model_ID_for_photos;
     
@@ -30,24 +33,38 @@ public class PhotoAlbumManager
         Log.d ( MainActivity.__FLAG__  , class_in + msg );
     }
     
+    private int photo_width , photo_height;
+    
     public PhotoAlbumManager( Activity activity , GridView gridView ,  int photo_per_line , int layout_model_ID_for_photos , String folder_path )
     {
         this.echo ( "Pointing to main context" );
         Context context = (Context) activity; 
         
         this.echo ( "Creating a new GridView" );
-        this.photoAlbum = new SimplePhotoAlbumView ( context , activity , gridView , layout_model_ID_for_photos , folder_path , photo_per_line );
+        this.photoAlbum = new SimplePhotoAlbumView ( context , activity , gridView , photo_per_line );
         
         this.echo ( "Creating a new SdcardManager" );
         this.sdcardManager = new SdcardManager ( );
+        this.echo ( "Change directory from : ["+this.sdcardManager.getWorkingDirectoryPath ( )+"] to ["+this.sdcardManager.getWorkingDirectoryPath ( )+"/"+folder_path+"]" );
+        
+        this.sdcardManager.changeDirectory ( folder_path );
         
         this.echo ( "Set base path for manipulation : "+folder_path );
-        this.folder_path = folder_path;
-        
         this.echo ( "Set ID reference for POJO builds" );
         this.layout_model_ID_for_photos = layout_model_ID_for_photos;
         
         this.echo ( "Try : initializing GridView" );
+        
+        //Display display = activity.getWindowManager().getDefaultDisplay();
+        //Point size = new Point(); 
+        //display.getSize(size);
+        
+        Display display = activity.getWindowManager ( ).getDefaultDisplay ( );
+        
+        photo_width = display.getWidth ( ) / photo_per_line;
+        photo_height = display.getHeight ( ) / (photo_per_line + 2);
+        
+        
         this.initializeGridView();
         
     }
@@ -65,13 +82,21 @@ public class PhotoAlbumManager
         
         this.echo ( "Try : fecth all the valid file paths related for photos" );
         
-        File[] files = this.sdcardManager.fetchPhotosInFileFormatAt ( this.folder_path );
+        Vector < File > pictures = this.sdcardManager.getPictures ( );
         
         this.echo ( "paths are fetched" );
         
-        for ( File file : files )
+        for ( File pic : pictures )
         {
-            Photo p = new Photo ( layout_model_ID_for_photos , file.getAbsolutePath ( ) , file.getName ( ) , 30 , 30 );
+            BitmapFactory.Options options = new BitmapFactory.Options ( );
+            
+            options.inSampleSize = 1;
+            
+            //
+            
+            Bitmap bmImg = BitmapFactory.decodeFile ( pic.getAbsolutePath ( )  , options);
+            
+            Photo p = new Photo ( layout_model_ID_for_photos ,  bmImg , photo_width ,  photo_height);
             
             this.photoAlbum.addPhoto ( p );
         }

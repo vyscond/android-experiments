@@ -6,7 +6,7 @@
 
     <!-- android app default -->
 
-    <string name="app_name">Sinbio</string>
+    <string name="app_name">SINBIO</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">SINBIO Mobile</string>
@@ -28,6 +28,7 @@
 
     <string name="button_label_salvar_registro">Salvar</string>
     <string name="button_label_cancelar_registro">Descartar</string>
+    <string name="button_label_tirar_foto">Tirar Foto</string>
 
     <!-- amostra cadastro general data -->
 
@@ -36,7 +37,6 @@
     <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_TWO">Metodo</string>
     <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_THREE">Localização</string>
     <string name="cadastro_amostra_general_data_DELIMITER_TITLE_SCREEN_FOUR">Galeria</string>
-    
     <string name="cadastro_amostra_general_data_ID_AMOSTRA">ID da amostra dado pelo coletor</string>
     <string name="cadastro_amostra_general_data_EXPEDICAO">Expedição</string>
     <string name="cadastro_amostra_general_data_PROJETO">Projeto</string>
@@ -56,5 +56,10 @@
     <string name="title_activity_simple_swipe_criar_registro">SimpleSwipeCriarRegistro</string>
     <string name="title_activity_new_simple_swipe_criar_registro_amostra">NewSimpleSwipeCriarRegistroAmostra</string>
     <string name="title_activity_criar_registro_amostra">CriarRegistroAmostra</string>
+    <string name="todo">TODO</string>
+    <string name="title_activity_take_pic">TakePic</string>
+    <string name="title_activity_fotos_registro_amostro">FotosRegistroAmostro</string>
+    <string name="screen_fotos_amostra">Gerenciar Fotos</string>
+    <string name="fotos_pop_up_selecao_folder_TITLE">Selecione uma pasta :D</string>
 
 </resources>

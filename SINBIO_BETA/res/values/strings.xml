@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">SINBIO_BETA</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_create_register">CreateRegisterActivity</string>
+    <string name="title_activity_maintain">MaintainActivity</string>
+    <string name="title_activity_maintain_register">MaintainRegisterActivity</string>
+    <string name="title_activity_send_register">SendRegisterActivity</string>
+    <string name="title_activity_photo_album">PhotoAlbumActivity</string>
+    <string name="title_activity_xml_creator">XmlCreatorActivity</string>
+    <string name="title_activity_register_form">RegisterFormActivity</string>
+    <string name="title_activity_register_photo_album">RegisterPhotoAlbumActivity</string>
+
+</resources>

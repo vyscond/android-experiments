@@ -1,15 +1,16 @@
 
 package core.dev.rawphotoalbum.composite.pojo;
 
-import core.dev.rawphotoalbum.R;
-import core.dev.rawphotoalbum.R.id;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.LinearLayout.LayoutParams;
+import core.dev.rawphotoalbum.R;
 
 public class Photo extends GenericItemList
 {
@@ -42,12 +43,14 @@ public class Photo extends GenericItemList
     
     private int height;
     
-    public Photo ( int layout , String imagePath , String imageName , int width , int height )
+       
+    private Bitmap image;
+    
+    public Photo( int layout , Bitmap image ,  int width , int height)
     {
-        super ( );
-        this.imagePath = imagePath;
-        this.imageName = imageName;
         this.layout = layout;
+        
+        this.image = image;
         
         this.width = width;
         
@@ -65,14 +68,18 @@ public class Photo extends GenericItemList
         TextView image_name;
         
         image = (ImageView) v.findViewById ( R.id.imageView1 );
+        image.setLayoutParams(new LinearLayout.LayoutParams(width, height));
+        //image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        //image.setPadding(1, 1, 1, 1);
+        
         
         //image_name = (TextView) v.findViewById ( R.id.textView1 );
         
         /* --- setting image on imageview --- */
 
-        Bitmap bmImg = BitmapFactory.decodeFile ( this.imagePath );
+                
+        image.setImageBitmap ( this.image );
         
-        image.setImageBitmap ( bmImg );
         
         image.setOnClickListener ( new OnClickListener( )
         {

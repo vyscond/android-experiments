@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/button_createregister_invoke_photo_album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:text="Fotos" />
+
+        <Button
+            android:id="@+id/button_createregister_invoke_forms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:text="Registro" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.94"
+        android:orientation="vertical" >
+
+        <ViewStub
+            android:id="@+id/viewStub_createregister_photo_album"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/create_photo_album" />
+
+        <ViewStub
+            android:id="@+id/viewStub_createregister_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/create_form" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView_createregister_save_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_shape_color_144d3c_borders_no_rounded"
+        android:gravity="center"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:text="Save All"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"
+        android:textSize="35dp" />
+
+</LinearLayout>
