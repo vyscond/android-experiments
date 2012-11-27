@@ -140,17 +140,17 @@ public class SimplePojoPicture extends GenericItemList
         image.setImageBitmap ( this.image );
         
         
-        image.setOnClickListener ( new OnClickListener( )
-        {
-            
-            public void onClick ( View v )
-            {
-                // TODO Auto-generated method stub
-                
-                Toast.makeText ( v.getContext ( ) , "["+imageName+"]" , Toast.LENGTH_SHORT ).show();
-                
-            }
-        });
+//        image.setOnClickListener ( new OnClickListener( )
+//        {
+//            
+//            public void onClick ( View v )
+//            {
+//                // TODO Auto-generated method stub
+//                
+//                Toast.makeText ( v.getContext ( ) , "["+imageName+"]" , Toast.LENGTH_SHORT ).show();
+//                
+//            }
+//        });
         
         //image.setLayoutParams ( new LinearLayout.LayoutParams ( this.width , this.height ) );
         

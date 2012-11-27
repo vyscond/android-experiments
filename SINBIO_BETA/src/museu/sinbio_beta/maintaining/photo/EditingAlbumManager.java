@@ -5,7 +5,9 @@ import java.util.Vector;
 
 import museu.sinbio_beta.R;
 import museu.sinbio_beta.common.photo.manager.PhotoAlbumManager;
+import museu.sinbio_beta.common.photo.manager.pojo.SimplePojoPicture;
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.widget.GridView;
 
 
@@ -35,5 +37,21 @@ public class EditingAlbumManager
             this.photoAlbumManager.addPhoto ( this.photoAlbumManager.getPhoto ( file ) );
         }
         
+    }
+    public void addPhoto( Bitmap pic )
+    {
+        this.photoAlbumManager.addPhoto ( pic );
+    }
+    public void deletePhoto( String photoPath , int position)
+    {
+        
+        this.photoAlbumManager.deletePhotoFromVirtualList ( position );
+        
+        this.photoAlbumManager.deletePhotoFromFolder ( photoPath );
+    }
+
+    public void saveTakedPictures( String absolutePath )
+    {
+        this.photoAlbumManager.saveAllPhotos ( absolutePath );
     }
 }

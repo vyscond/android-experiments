@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">Riposte</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Riposte</string>
+    <string name="title_activity_editor">RiposteEditor</string>
+
+</resources>

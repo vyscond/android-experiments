@@ -1,11 +1,8 @@
 
 package museu.sinbio_beta.creating;
 
-import nu.xom.Element;
 import museu.sinbio_beta.MenuActivity;
 import museu.sinbio_beta.R;
-import museu.sinbio_beta.common.xml.engine.StupidXML;
-import museu.sinbio_beta.common.xml.engine.StupidXML.Tag;
 import museu.sinbio_beta.common.xml.pojo.RegisterXml;
 import museu.sinbio_beta.creating.sub_activitys.photo.CreatingAlbumManager;
 import museu.sinbio_beta.creating.sub_activitys.xml.CreatingRegisterXMLManager;
@@ -201,9 +198,9 @@ public class CreateRegisterActivity extends Activity
             try
             
             {
-                Bitmap photo = (Bitmap) data.getExtras ( ).get ( "data" );
+                Bitmap pic = (Bitmap) data.getExtras ( ).get ( "data" );
                 
-                this.creatingAlbumManager.addPhoto ( photo );
+                this.creatingAlbumManager.addPhoto ( pic );
             }
             catch ( Exception e )
             {
@@ -247,7 +244,7 @@ public class CreateRegisterActivity extends Activity
     {
         // --- criando um XML
         
-        Element root , id , data , hora;
+        
         
         this.echo ( "Save All running" );
         

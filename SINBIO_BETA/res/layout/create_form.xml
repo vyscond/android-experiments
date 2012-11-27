@@ -8,10 +8,19 @@
     android:orientation="vertical"
     android:padding="15dp" >
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+    
+            <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        
         android:orientation="vertical"
         android:paddingBottom="35dp"
         android:paddingTop="35dp" >
@@ -22,7 +31,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="ID da Amostra"
-            
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
@@ -30,9 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" 
-           
-            >
+            android:inputType="number" >
         </EditText>
     </LinearLayout>
 
@@ -41,7 +47,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        
         android:orientation="vertical"
         android:paddingBottom="35dp"
         android:paddingTop="35dp" >
@@ -51,7 +56,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            
             android:text="data da coleta"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -60,15 +64,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date" 
-            
-            />
+            android:inputType="date" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        
         android:orientation="vertical"
         android:paddingBottom="35dp"
         android:paddingTop="35dp" >
@@ -77,7 +78,6 @@
             android:id="@+id/TextView_register_form_HOUR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            
             android:gravity="center"
             android:text="hora da coleta"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -87,9 +87,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="time"
-            
-             />
+            android:inputType="time" />
     </LinearLayout>
+            
+            
+        </LinearLayout>
+    </ScrollView>
 
+    
 </LinearLayout>

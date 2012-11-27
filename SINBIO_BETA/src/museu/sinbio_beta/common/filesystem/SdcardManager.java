@@ -4,6 +4,7 @@ package museu.sinbio_beta.common.filesystem;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FilenameFilter;
@@ -11,9 +12,10 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import museu.sinbio_beta.MenuActivity;
-
 import android.graphics.Bitmap;
 import android.os.Environment;
 import android.util.Log;
@@ -46,6 +48,8 @@ public class SdcardManager
     public ArrayList < String > toArrayListFolders ( String absolutePath )
     {
         ArrayList < String > folders = new ArrayList < String > ( );
+        
+        this.echo ( "Scanning >> " + this.getBasePath ( ) + "/" + absolutePath );
         
         File f = new File ( this.getBasePath ( ) + "/" + absolutePath );
         
@@ -165,7 +169,7 @@ public class SdcardManager
     public Vector < File > getPictures ( String absolutePath )
     {
         
-        return this.getVectorPictures ( new File( absolutePath ) , this.getImageFilters ( ) , - 1 );
+        return this.getVectorPictures ( new File ( absolutePath ) , this.getImageFilters ( ) , - 1 );
     }
     
     public Vector < String > getPicturesAbsolutePath ( )
@@ -332,12 +336,11 @@ public class SdcardManager
     {
         // Get the text file
         
-      
-        this.echo ( "Man! Lets try open a file at ["+absolutePath+"]" );
+        this.echo ( "Man! Lets try open a file at [" + absolutePath + "]" );
         
-        File file = new File ( absolutePath , filename+"."+extension );
+        File file = new File ( absolutePath , filename + "." + extension );
         
-        if( file  == null)
+        if ( file == null )
         {
             this.echo ( "Caralho velho! .-. " );
         }
@@ -353,7 +356,7 @@ public class SdcardManager
             while ( ( line = br.readLine ( ) ) != null )
             {
                 
-                this.echo ( "BUffering line from file : "+line );
+                this.echo ( "BUffering line from file : " + line );
                 
                 text.append ( line );
                 text.append ( '\n' );
@@ -388,7 +391,7 @@ public class SdcardManager
             
             // persistindo o arquivo!
             
-            File raw_text_file = new File ( absolutePath + "/" + fileName +"."+ extension );
+            File raw_text_file = new File ( absolutePath + "/" + fileName + "." + extension );
             
             if ( raw_text_file.createNewFile ( ) )
             {
@@ -417,6 +420,72 @@ public class SdcardManager
         {
             // TODO: handle exception
             
+        }
+    }
+    
+    public void removeFile ( String path )
+    {
+        // TODO Auto-generated method stub
+        
+        try
+        {
+            File f = new File ( path );
+            
+            f.delete ( );
+        }
+        catch ( Exception e )
+        {
+            // TODO: handle exception
+            
+            this.echo ( "Ups! :X cant delete .-." );
+        }
+        
+    }
+    
+    /*--------------------------------------------------------------------
+     * 
+     *                             ZIP/UNZIP
+     *                             
+     *--------------------------------------------------------------------*/
+
+    public void zipDirectory ( String folderPath , String zipPath ) throws IOException
+    {
+        
+        this.echo ( "ZIP PROCESS STARTING" );
+        
+        File directory = new File ( folderPath );
+        File zip = new File ( zipPath );    
+        ZipOutputStream zos = new ZipOutputStream ( new FileOutputStream ( zip ) );
+        zip ( directory , directory , zos );
+        zos.close ( );
+        
+        this.echo ( "ZIP PROCESS DONE" );
+    }
+    
+    private static final void zip ( File directory , File base ,
+            ZipOutputStream zos ) throws IOException
+    {
+        File[] files = directory.listFiles ( );
+        byte[] buffer = new byte[ 8192 ];
+        int read = 0;
+        for ( int i = 0 , n = files.length ; i < n ; i++ )
+        {
+            if ( files [ i ].isDirectory ( ) )
+            {
+                zip ( files [ i ] , base , zos );
+            }
+            else
+            {
+                FileInputStream in = new FileInputStream ( files [ i ] );
+                ZipEntry entry = new ZipEntry ( files [ i ].getPath ( ).substring (
+                        base.getPath ( ).length ( ) + 1 ) );
+                zos.putNextEntry ( entry );
+                while ( - 1 != ( read = in.read ( buffer ) ) )
+                {
+                    zos.write ( buffer , 0 , read );
+                }
+                in.close ( );
+            }
         }
     }
     

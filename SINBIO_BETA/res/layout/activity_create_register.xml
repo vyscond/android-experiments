@@ -52,9 +52,9 @@
         android:gravity="center"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
-        android:text="Save All"
+        android:text="@string/textview_createregister_save_all"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"
-        android:textSize="35dp" />
+        android:textSize="25dp" />
 
 </LinearLayout>

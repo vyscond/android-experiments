@@ -49,7 +49,11 @@ public class PhotoAlbumManager
         
         Bitmap bmImg = BitmapFactory.decodeFile ( f.getAbsolutePath ( ) , options );
         
-        return new SimplePojoPicture ( layout_model_ID_for_photos , bmImg , f.getName ( ) );
+        SimplePojoPicture p = new SimplePojoPicture ( layout_model_ID_for_photos , bmImg , f.getName ( ) );
+        
+        p.setImagePath ( f.getAbsolutePath ( ) );
+        
+        return p;
     }
     
     public PhotoAlbumManager ( Activity activity , GridView gridView , int photoPerLine ,
@@ -80,7 +84,7 @@ public class PhotoAlbumManager
         
     }
     
-    public void addPhoto ( Bitmap photo )
+    public void addPhoto ( Bitmap pic )
     {
         
         Time now = new Time ( );
@@ -90,9 +94,9 @@ public class PhotoAlbumManager
         
         String fileName = this.prefix + date;
         
-        this.photosTaked.put ( fileName , photo );
+        this.photosTaked.put ( fileName , pic );
         
-        this.photoAlbum.addPhoto ( new SimplePojoPicture ( layout_model_ID_for_photos , photo , fileName , photo_width , photo_height ) );
+        this.photoAlbum.addPhoto ( new SimplePojoPicture ( layout_model_ID_for_photos , pic , fileName , photo_width , photo_height ) );
     }
     
     public void addPhoto(SimplePojoPicture p)
@@ -139,6 +143,10 @@ public class PhotoAlbumManager
                 
                 SimplePojoPicture p = new SimplePojoPicture ( layout_model_ID_for_photos , bmImg , pic.getName ( ) );
                 
+                p.setImagePath ( absolutePath );
+                
+                this.echo ( "Adding photo with path ["+p.getImagePath ( )+"]" );
+                
                 this.photoAlbum.addPhoto ( p );
             }
         }
@@ -149,7 +157,7 @@ public class PhotoAlbumManager
         
     }
     
-    public void deleteFromFromVirtualList( int position )
+    public void deletePhotoFromVirtualList( int position )
     {
         this.photoAlbum.remove( position );
     }
@@ -160,12 +168,28 @@ public class PhotoAlbumManager
         
         this.echo ( "Behold the dragon! Foreach is comming!" );
         
+        try
+        {
+        
         for ( String label : this.photosTaked.keySet ( ) )
         {
             
             this.sdcardManager.saveBitmapAsJPEG ( this.photosTaked.get ( label ) , label , SdcardManager.IMAGE_QUALITY_OK_THATS_FINE , absolutePath );
             
         }
+        }
+        catch (Exception e) {
+
+            // TODO: handle exception
+            
+            this.echo ( "No photos on the adapter list" );
+        }
+    }
+
+    public void deletePhotoFromFolder ( String photoPath )
+    {
+        // TODO Auto-generated method stub
+        this.sdcardManager.removeFile( photoPath );
     }
     
 }

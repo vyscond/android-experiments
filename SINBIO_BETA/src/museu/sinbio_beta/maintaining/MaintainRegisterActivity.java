@@ -3,35 +3,36 @@ package museu.sinbio_beta.maintaining;
 
 import java.util.ArrayList;
 
-import nu.xom.Element;
-
 import museu.sinbio_beta.MenuActivity;
 import museu.sinbio_beta.R;
 import museu.sinbio_beta.common.animation.managers.HiddenFlipper;
 import museu.sinbio_beta.common.composite.GenericAdapter;
 import museu.sinbio_beta.common.composite.GenericItemList;
 import museu.sinbio_beta.common.filesystem.SdcardManager;
+import museu.sinbio_beta.common.photo.manager.pojo.SimplePojoPicture;
 import museu.sinbio_beta.common.xml.pojo.RegisterXml;
 import museu.sinbio_beta.creating.CreateRegisterActivity;
-import museu.sinbio_beta.creating.sub_activitys.photo.CreatingAlbumManager;
-import museu.sinbio_beta.creating.sub_activitys.xml.CreatingRegisterXMLManager;
 import museu.sinbio_beta.maintaining.photo.EditingAlbumManager;
 import museu.sinbio_beta.maintaining.xml.EditingRegisterXMLManager;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewStub;
 import android.view.View.OnClickListener;
+import android.view.ViewStub;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -146,15 +147,15 @@ public class MaintainRegisterActivity extends Activity
         
         this.echo ( "Build Stance for EditText ID" );
         
-        this.editTextIdAmostra = (EditText) this.viewForm.findViewById ( R.id.editText_register_form_ID_AMOSTRA );
+        this.editTextIdAmostra = (EditText) this.viewForm.findViewById ( R.id.editText_edit_form_ID_AMOSTRA );
         
         this.echo ( "Build Stance for EditText Date" );
         
-        this.editTextData = (EditText) this.viewForm.findViewById ( R.id.editText_register_form_DATE );
+        this.editTextData = (EditText) this.viewForm.findViewById ( R.id.editText_edit_form_DATE );
         
         this.echo ( "Build Stance for EditText Hour" );
         
-        this.editTextHora = (EditText) this.viewForm.findViewById ( R.id.editText_register_form_HOUR );
+        this.editTextHora = (EditText) this.viewForm.findViewById ( R.id.editText_edit_form_HOUR );
         
         if ( this.editTextData == null )
         {
@@ -163,17 +164,34 @@ public class MaintainRegisterActivity extends Activity
         
         /*----------------------------------------------------
          * 
-         *           Setting Up Photo Album
+         *           Setting Up Edit Manager
          * 
          *---------------------------------------------------*/
-        
+
         this.editingAlbumManager = new EditingAlbumManager ( this , gridViewEditPhotoAlbum , 2 );
         
         this.editingRegisterXMLManager = new EditingRegisterXMLManager ( );
         
         /*---------------------------------------------------
          * 
-         *                 OnSelect Register
+         *            Photo Album GridView OnSelect Register
+         *  
+         *---------------------------------------------------*/
+
+        gridViewEditPhotoAlbum.setOnItemClickListener ( new OnItemClickListener ( )
+        {
+            
+            public void onItemClick ( AdapterView < ? > arg0 , View arg1 , int arg2 , long arg3 )
+            {
+                // TODO Auto-generated method stub
+                selectingPhoto ( arg0 , arg1 , arg2 , arg3 );
+            }
+        }
+                );
+        
+        /*---------------------------------------------------
+         * 
+         *            Register List OnSelect Register
          *  
          *---------------------------------------------------*/
 
@@ -190,14 +208,8 @@ public class MaintainRegisterActivity extends Activity
                         selectingRegister ( arg0 , arg1 , arg2 , arg3 );
                     }
                 }
-         );
+                );
         
-        /*-----------------------------------------------------
-         * 
-         *                   Build Tab
-         * 
-         *----------------------------------------------------*/
-
         /*-----------------------------------------------------
          *                   
          *                   Button Tabs
@@ -226,8 +238,82 @@ public class MaintainRegisterActivity extends Activity
             }
         } );
         
+        /*-------------------------------------------------
+         * 
+         *           TAKE PHOTOS... EVERY DAY
+         *  
+         *-------------------------------------------------*/
+
+        
+        
+        
+        textViewTakingPhoto.setOnClickListener ( new OnClickListener ( )
+         {
+             
+             public void onClick ( View v )
+             {
+                 
+                 // TODO Auto-generated method stub
+                 takingPhoto ( v );
+             }
+             
+         } );
+        
+        /*-------------------------------------------------
+        *
+        *                SAVE ALL / CANCEL ALL
+        *                
+        *-------------------------------------------------*/
+
+       
+       
+       this.saveAll.setOnClickListener ( new OnClickListener ( )
+       {
+           
+           public void onClick ( View v )
+           {
+               // TODO Auto-generated method stub
+               saveAll ( );
+           }
+       } );
+        
     }
     
+    protected void takingPhoto ( View v )
+    {
+        // TODO Auto-generated method stub// this.registerFormActivity.getInfoFromUI ( );
+        
+        // --- Recuperando a activity atualmente selecionanda no tabhost
+        // String tabTag = getTabHost().getCurrentTabTag();
+        
+        
+        Intent cameraIntent = new Intent (
+                android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
+        startActivityForResult ( cameraIntent , 2 );
+        
+    }
+    
+    public void onActivityResult ( int requestCode , int resultCode , Intent data )
+    {
+        if ( requestCode == 2 )
+        {
+            
+            try
+            
+            {
+                Bitmap photo = (Bitmap) data.getExtras ( ).get ( "data" );
+                
+                this.editingAlbumManager.addPhoto ( photo );
+            }
+            catch ( Exception e )
+            {
+                // TODO: handle exception
+                Toast.makeText ( MaintainRegisterActivity.this , "Photo Canceled" , Toast.LENGTH_SHORT ).show ( );
+            }
+            
+        }
+    }
+
     private void emptyView ( )
     {
         // TODO Auto-generated method stub
@@ -255,37 +341,87 @@ public class MaintainRegisterActivity extends Activity
      * ULtimo metodo a ser chamado quando a seleção é feita :D
      */
 
-    RegisterItem i ;
+    RegisterItem lastSelectedRegister;
     
-    public void selectingRegister ( AdapterView < ? > arg0 , View arg1 , int arg2 , long arg3 )
+    // private void showPopUp2() {
+    //
+    // AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+    // helpBuilder.setTitle("Photo Management");
+    // helpBuilder.setMessage("Deseja Deletar a photo?");
+    // helpBuilder.setPositiveButton("Sim",
+    // new DialogInterface.OnClickListener() {
+    //
+    // public void onClick(DialogInterface dialog, int which) {
+    // // Do nothing but close the dialog
+    // }
+    // });
+    //
+    // helpBuilder.setNegativeButton("Nao", new DialogInterface.OnClickListener() {
+    //
+    // public void onClick(DialogInterface dialog, int which) {
+    // // Do nothing
+    // }
+    // });
+    //
+    // helpBuilder.setNeutralButton("Neutral", new DialogInterface.OnClickListener() {
+    //
+    // public void onClick(DialogInterface dialog, int which) {
+    // // Do nothing
+    // }
+    // });
+    //
+    // // Remember, create doesn't show the dialog
+    // AlertDialog helpDialog = helpBuilder.create();
+    // helpDialog.show();
+    //
+    //
+    //
+    // }
+    
+    public int   lastPhotoSelectedIndex = 0;
+    
+    public String lastPhotoSelectedPath;
+    
+    public void selectingPhoto ( AdapterView < ? > arg0 , View arg1 , int arg2 , long arg3 )
     {
-        Toast.makeText ( this , "Selecting " + arg2 + " item" , Toast.LENGTH_SHORT ).show ( );
+        Toast.makeText ( this , "Selecting Photo " + arg2 , Toast.LENGTH_SHORT ).show ( );
+        
+        this.echo ( "Deleting photos" );
         
         try
         {
             
-            RegisterItem i = (RegisterItem) arg0.getItemAtPosition ( arg2 );
+            lastPhotoSelectedIndex = arg2;
             
-            this.i = i;
+            lastPhotoSelectedPath = ((SimplePojoPicture) arg0.getItemAtPosition ( arg2 )).getImagePath ( );
             
-            Toast.makeText ( this , "Register Name [" + i.getRegisterName ( ) + "]" , Toast.LENGTH_SHORT ).show ( );
-            
-            if( i == null )
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener ( )
             {
-                this.emptyView ( );
+                
+                public void onClick ( DialogInterface dialog , int which )
+                {
+                    switch ( which )
+                    {
+                        case DialogInterface.BUTTON_POSITIVE :
+                        // Yes button clicked
+                        
+                        echo ( "Trying to delete ["+lastPhotoSelectedPath+"]" );
+                            
+                        editingAlbumManager.deletePhoto (  lastPhotoSelectedPath , lastPhotoSelectedIndex );
+                        
+                        break;
+                    
+                    case DialogInterface.BUTTON_NEGATIVE :
+                        // No button clicked
+                        Toast.makeText ( MaintainRegisterActivity.this , "No deletation xD" , Toast.LENGTH_SHORT ).show ( );
+                        break;
+                }
             }
+            };
             
-            this.onEditRegisterPath = i.getRegisterPath ( );
-            
-            this.onEditRegisterName.setText ( i.getRegisterName ( ) );
-            
-            
-         
-            this.fillTheFields (  );
-            
-            this.viewFlipper.turnToRight ( );
-            
-            this.switchFromFormToPhotoAlbum ( );// para que o layout chegue coloridinho :3
+            AlertDialog.Builder builder = new AlertDialog.Builder ( this );
+            builder.setMessage ( "Deseja Mesmo Deletar a Foto?" ).setPositiveButton ( "Yes" , dialogClickListener )
+                    .setNegativeButton ( "No" , dialogClickListener ).show ( );
             
         }
         catch ( Exception e )
@@ -295,53 +431,117 @@ public class MaintainRegisterActivity extends Activity
         }
     }
     
-    /*
-     * 
-     * Filling all the field on forms
-     */
-    Element registerOnEdit;
-    public void fillTheFields (  )
+    public void selectingRegister ( AdapterView < ? > arg0 , View arg1 , int arg2 , long arg3 )
     {
         
-        RegisterItem reg = this.i;
+        this.echo ( "ListView with Register List received a touch" );
         
-        this.echo(" loading photos from " + reg.getRegisterPath ( ));
+        try
+        {
+            
+            RegisterItem i = (RegisterItem) arg0.getItemAtPosition ( arg2 );
+            
+            this.echo ( "Recovering Selected Item" );
+            
+            this.lastSelectedRegister = i;
+            
+            this.onEditRegisterPath = i.getRegisterPath ( );
+            
+            this.onEditRegisterName.setText ( i.getRegisterName ( ) );
+            
+            this.echo ( "Setting global infos" );
+            
+            this.switchFromFormToPhotoAlbum ( );// para que o layout chegue coloridinho :3
+            
+            this.viewFlipper.turnToRight ( );
+            
+            this.fillTheFields ( );
+            
+            this.echo ( "Filling fields" );
+            
+        }
+        catch ( Exception e )
+        {
+            // TODO: handle exception
+            Toast.makeText ( this , "BusyBox on the head @_@" , Toast.LENGTH_SHORT ).show ( );
+        }
+    }
+    
+    /*---------------------------------------------------------------------
+     * 
+     *                    Filling all the field on forms
+     *
+     *---------------------------------------------------------------------*/
+
+    public void fillTheFields ( )
+    {
         
-//        this.editingAlbumManager.showAllAvailablePhotosAtPath (reg.getRegisterPath ( ) );
+        RegisterItem reg = this.lastSelectedRegister;
         
+        this.echo ( " LOADING photos from " + reg.getRegisterPath ( ) );
+        
+        // this.editingAlbumManager.showAllAvailablePhotosAtPath (reg.getRegisterPath ( ) );
+        
+        /* --- Filling photo album --- */
+
         this.editingAlbumManager.addPhotoVector ( this.sdcardManager.getPictures ( reg.getRegisterPath ( ) ) );
         
-        
- 
-        
-        
-        
-        String fileName = reg.getRegisterName ( ).toLowerCase ( ) ;
+        /* --- Filling forms --- */
+
+        String fileName = reg.getRegisterName ( ).toLowerCase ( );
         
         String absolutePath = reg.getRegisterPath ( );
         
-        this.echo ( "Try : loading dreg \nfile name  ["+fileName+"]\n file path ["+absolutePath+"]" );
+        this.echo ( "Try : loading dreg \nfile name  [" + fileName + "]\n file path [" + absolutePath + "]" );
         
         String dreg = this.editingRegisterXMLManager.getDreg ( fileName , absolutePath );
         
-        this.echo ( "Dreg files was loaded \n"+dreg );
-        
-        if( dreg == null )
-        {
-            this.echo ( "Shit nigga! cant find file :D" );
-        }
-        
+        this.echo ( "Dreg files was loaded \n" + dreg );
         
         RegisterXml savedReg = new RegisterXml ( dreg );
-//       
-       
+        
         this.echo ( " Setting values for forms " );
         
-        this.editTextIdAmostra.setText ( (CharSequence) savedReg.getIdAmostra ( ) );
+        this.editTextIdAmostra.setText ( savedReg.getIdAmostra ( ) );
         
-        this.editTextData.setText ( (CharSequence)  savedReg.getData ( ) );
+        this.editTextData.setText ( savedReg.getData ( ) );
         
-        this.editTextHora.setText ((CharSequence)  savedReg.getHora ( ) );
+        this.editTextHora.setText ( savedReg.getHora ( ) );
+    }
+    
+    /*-----------------------------------------------------------
+     * 
+     *                     SAVE EDIT REG
+     * 
+     *-----------------------------------------------------------*/
+
+    public void saveAll ( )
+    {
+        // --- criando um XML
+        
+        this.echo ( "Save All running" );
+        
+        Toast.makeText ( this , "Building XML" , Toast.LENGTH_SHORT ).show ( );
+        
+        String idString = this.editTextIdAmostra.getText ( ).toString ( );
+        String dataString = this.editTextData.getText ( ).toString ( );
+        String horaString = this.editTextHora.getText ( ).toString ( );
+        
+        String folderPath = Environment.getExternalStorageDirectory ( ).getAbsolutePath ( ) + "/" + MenuActivity.BASE_FOLDER + "/" + "REGISTRO_" + this.editTextIdAmostra.getText ( ).toString ( );
+        
+        String fileName = "registro_" + this.editTextIdAmostra.getText ( ).toString ( );
+        
+        RegisterXml reg = new RegisterXml ( idString , dataString , horaString , fileName , folderPath );
+        
+        Toast.makeText ( this , "Saving XML in Folder [" + folderPath + "]" , Toast.LENGTH_SHORT ).show ( );
+        
+        this.editingRegisterXMLManager.saveNewXml ( reg );
+        
+        Toast.makeText ( this , "Saving Images" , Toast.LENGTH_SHORT ).show ( );
+        
+        this.editingAlbumManager.saveTakedPictures ( folderPath );
+        
+        Toast.makeText ( this , "Its on mothafucka []" , Toast.LENGTH_SHORT ).show ( );
     }
     
     @ Override
@@ -355,8 +555,6 @@ public class MaintainRegisterActivity extends Activity
     {
         Log.d ( MenuActivity.__FLAG__ , "CreateReg : " + msg );
     }
-    
-  
     
     public void switchFromPhotoAlbumToForm ( )
     {

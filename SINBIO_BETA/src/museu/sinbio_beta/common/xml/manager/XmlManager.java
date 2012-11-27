@@ -52,7 +52,7 @@ public class XmlManager
     
     public String getDreg ( String fileName , String absolutePath )
     {
-        this.echo ( "Bitch try to reached dreg at ["+ absolutePath+fileName+".dreg" +"]");
+        this.echo ( "Bitch try to reached dreg at ["+ absolutePath+"/"+fileName+".dreg" +"]");
         return this.sdcardManager.getFileAsString ( fileName , "dreg" , absolutePath );
     }
     

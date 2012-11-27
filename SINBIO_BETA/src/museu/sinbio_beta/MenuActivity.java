@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MenuActivity extends Activity
 {
@@ -59,36 +60,50 @@ public class MenuActivity extends Activity
             }
         } );
         
-        textViewCallMaintainRegisterScreen = (TextView) findViewById ( R.id.textView_invoke_maintainregister_activity);
+        textViewCallMaintainRegisterScreen = (TextView) findViewById ( R.id.textView_invoke_maintainregister_activity );
         
         textViewCallMaintainRegisterScreen.setOnClickListener ( new OnClickListener ( )
         {
-              
-              public void onClick ( View v )
+            
+            public void onClick ( View v )
               {
                   // TODO Auto-generated method stub
                   startActivity ( new Intent ( MenuActivity.this , MaintainRegisterActivity.class ) );
-              
+                  
               }
-              
-          } );
+            
+        } );
         
-        /*
-         * textViewSendRegisterScreen = (TextView) findViewById ( R.id.textView_invoke_createregister_activity );
-         * 
-         * textViewSendRegisterScreen.setOnClickListener ( new OnClickListener ( )
-         * {
-         * 
-         * public void onClick ( View v )
-         * {
-         * // TODO Auto-generated method stub
-         * invokeScreen_onClick ( v , SCREEN_SEND );
-         * }
-         * } );
-         */
-
+        textViewSendRegisterScreen = (TextView) findViewById ( R.id.textView_invoke_sendregister_activity );
+        
+        if( textViewSendRegisterScreen == null )
+        {
+            this.echo( "Shit" );
+        }
+        
+        textViewSendRegisterScreen.setOnClickListener ( new OnClickListener ( )
+             {
+                 
+                 public void onClick ( View v )
+                 {
+                     // TODO Auto-generated method stub
+                         
+                         MenuActivity.this.echo ( "Caralhowwww" );
+                         startActivityForResult ( new Intent ( MenuActivity.this , SendRegisterActivity.class ) , Intent.FLAG_ACTIVITY_REORDER_TO_FRONT );
+                         
+                         finishActivity ( Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP );
+                 }
+             } 
+        );
+        
     }
     
+    private void echo ( String string )
+    {
+        // TODO Auto-generated method stub
+        Log.d ( MenuActivity.__FLAG__ , string );
+    }
+
     @ Override
     public boolean onCreateOptionsMenu ( Menu menu )
     {

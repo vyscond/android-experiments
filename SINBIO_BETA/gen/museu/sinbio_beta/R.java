@@ -27,48 +27,55 @@ public final class R {
         public static final int green_save_button_bright=0x7f02000d;
         public static final int ic_action_search=0x7f02000e;
         public static final int ic_launcher=0x7f02000f;
+        public static final int ic_launcher_museu_goeldi_logo=0x7f020010;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f070000;
-        public static final int LinearLayout_edit_screen=0x7f07001d;
+        public static final int LinearLayout_edit_screen=0x7f070023;
         public static final int LinearLayout_maintainregister=0x7f070006;
-        public static final int LinearLayout_register_photo_album_base=0x7f070013;
-        public static final int TextView_edit_form_HOUR=0x7f070018;
-        public static final int TextView_register_form_DATE=0x7f07000f;
-        public static final int TextView_register_form_HOUR=0x7f070011;
+        public static final int LinearLayout_register_photo_album_base=0x7f070016;
+        public static final int TextView_edit_form_DATE=0x7f07001b;
+        public static final int TextView_edit_form_HOUR=0x7f07001d;
+        public static final int TextView_register_form_DATE=0x7f070012;
+        public static final int TextView_register_form_HOUR=0x7f070014;
         public static final int button_createregister_invoke_forms=0x7f070002;
         public static final int button_createregister_invoke_photo_album=0x7f070001;
-        public static final int button_maintainregister_invoke_forms=0x7f070020;
-        public static final int button_maintainregister_invoke_photo_album=0x7f07001f;
-        public static final int editText_edit_form_HOUR=0x7f070019;
-        public static final int editText_register_form_DATE=0x7f070010;
-        public static final int editText_register_form_HOUR=0x7f070012;
-        public static final int editText_register_form_ID_AMOSTRA=0x7f07000e;
-        public static final int gridView_edit_photo_album_gallery=0x7f07001b;
-        public static final int gridView_photo_gallery=0x7f070015;
-        public static final int imageView_picture=0x7f070024;
-        public static final int listView1=0x7f07001c;
-        public static final int menu_settings=0x7f070027;
-        public static final int scrollView1=0x7f070016;
+        public static final int button_maintainregister_invoke_forms=0x7f070026;
+        public static final int button_maintainregister_invoke_photo_album=0x7f070025;
+        public static final int editText_edit_form_DATE=0x7f07001c;
+        public static final int editText_edit_form_HOUR=0x7f07001e;
+        public static final int editText_edit_form_ID_AMOSTRA=0x7f07001a;
+        public static final int editText_register_form_DATE=0x7f070013;
+        public static final int editText_register_form_HOUR=0x7f070015;
+        public static final int editText_register_form_ID_AMOSTRA=0x7f070011;
+        public static final int gridView_edit_photo_album_gallery=0x7f070020;
+        public static final int gridView_photo_gallery=0x7f070018;
+        public static final int imageView_picture=0x7f07002a;
+        public static final int listView1=0x7f070022;
+        public static final int listView_sendregister_availables=0x7f07000e;
+        public static final int menu_settings=0x7f07002d;
+        public static final int scrollView1=0x7f07000f;
         public static final int textView_createregister_save_all=0x7f070005;
-        public static final int textView_edit_form_ID_AMOSTRA=0x7f070017;
-        public static final int textView_edit_photo_album_take_pic=0x7f07001a;
-        public static final int textView_edit_screen_register_name=0x7f07001e;
+        public static final int textView_createregister_title=0x7f070021;
+        public static final int textView_edit_form_ID_AMOSTRA=0x7f070019;
+        public static final int textView_edit_photo_album_take_pic=0x7f07001f;
+        public static final int textView_edit_screen_register_name=0x7f070024;
         public static final int textView_invoke_createregister_activity=0x7f07000a;
         public static final int textView_invoke_maintainregister_activity=0x7f07000b;
         public static final int textView_invoke_sendregister_activity=0x7f07000c;
-        public static final int textView_maintainregister_save_all=0x7f070023;
-        public static final int textView_photo_album_take_pic=0x7f070014;
-        public static final int textView_picture_name=0x7f070025;
-        public static final int textView_pojo_register_item_name=0x7f070026;
-        public static final int textView_register_form_ID_AMOSTRA=0x7f07000d;
+        public static final int textView_maintainregister_save_all=0x7f070029;
+        public static final int textView_photo_album_take_pic=0x7f070017;
+        public static final int textView_picture_name=0x7f07002b;
+        public static final int textView_pojo_register_item_name=0x7f07002c;
+        public static final int textView_register_form_ID_AMOSTRA=0x7f070010;
+        public static final int textView_sendregister_title=0x7f07000d;
         public static final int viewFlipper1=0x7f070007;
         public static final int viewStub_createregister_form=0x7f070004;
         public static final int viewStub_createregister_photo_album=0x7f070003;
         public static final int viewStub_maintain_register_edit_screen_selector=0x7f070008;
         public static final int viewStub_maintain_register_edit_screen_viewer=0x7f070009;
-        public static final int viewStub_maintainregister_form=0x7f070022;
-        public static final int viewStub_maintainregister_photo_album=0x7f070021;
+        public static final int viewStub_maintainregister_form=0x7f070028;
+        public static final int viewStub_maintainregister_photo_album=0x7f070027;
     }
     public static final class layout {
         public static final int activity_create_register=0x7f030000;
@@ -99,14 +106,20 @@ public final class R {
         public static final int app_name=0x7f040000;
         public static final int hello_world=0x7f040001;
         public static final int menu_settings=0x7f040002;
+        public static final int textview_createregister_save_all=0x7f04000c;
+        public static final int textview_photo_album_take_snapshot=0x7f04000d;
         public static final int title_activity_create_register=0x7f040004;
-        public static final int title_activity_maintain=0x7f040005;
-        public static final int title_activity_maintain_register=0x7f040006;
+        /**  Sub Views 
+         */
+        public static final int title_activity_maintain=0x7f040007;
+        public static final int title_activity_maintain_register=0x7f040005;
+        /**  Main Activitys 
+         */
         public static final int title_activity_menu=0x7f040003;
         public static final int title_activity_photo_album=0x7f040008;
         public static final int title_activity_register_form=0x7f04000a;
         public static final int title_activity_register_photo_album=0x7f04000b;
-        public static final int title_activity_send_register=0x7f040007;
+        public static final int title_activity_send_register=0x7f040006;
         public static final int title_activity_xml_creator=0x7f040009;
     }
     public static final class style {
