@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,11 +32,18 @@ public class SendRegisterActivity extends Activity
     
     private GenericAdapter adapter;
     
+    private EditText       editTextIPServer;
+    
+    private EditText       editTextPortServer;
+    
     @ Override
     public void onCreate ( Bundle savedInstanceState )
     {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_send_register );
+        
+        this.editTextIPServer = (EditText) findViewById ( R.id.editText_IP_SERVER );
+        this.editTextPortServer = (EditText) findViewById ( R.id.editText_PORT_SERVER );
         
         this.sdcardManager = new SdcardManager ( );
         
@@ -57,7 +65,7 @@ public class SendRegisterActivity extends Activity
                 }
             }
 
-       );
+            );
         
     }
     
@@ -67,21 +75,23 @@ public class SendRegisterActivity extends Activity
         
         try
         {
-            //Toast.makeText ( this , "["+arg2+"]" , Toast.LENGTH_SHORT ).show ( );
+            // Toast.makeText ( this , "["+arg2+"]" , Toast.LENGTH_SHORT ).show ( );
             
-            RegisterItem regItem = ((RegisterItem) arg0.getItemAtPosition ( arg2 ));
+            RegisterItem regItem = ( (RegisterItem) arg0.getItemAtPosition ( arg2 ) );
             
-            //Toast.makeText ( this , "Zipping["+regItem.getRegisterPath ( )+"]" , Toast.LENGTH_SHORT ).show ( );
+            // Toast.makeText ( this , "Zipping["+regItem.getRegisterPath ( )+"]" , Toast.LENGTH_SHORT ).show ( );
             
             String folderPathToZip = regItem.getRegisterPath ( );
             
-            String zipPathWithName = regItem.getRegisterPath ( )+".zip";
+            String zipPathWithName = regItem.getRegisterPath ( ) + ".zip";
             
             this.sdcardManager.zipDirectory ( folderPathToZip , zipPathWithName );
             
             this.sendZip ( zipPathWithName );
             
-        }catch (Exception e) {
+        }
+        catch ( Exception e )
+        {
             // TODO: handle exception
         }
         
@@ -92,23 +102,35 @@ public class SendRegisterActivity extends Activity
      *                              THE WEBZTER
      * 
      *---------------------------------------------------------------------*/
-    
-    
-    
-    public void sendZip( String fileName  )
+
+    public void sendZip ( String fileName )
     {
-        String ip = "192.168.43.104";
         
-        String port = "666";
-        ConnectTask conn  = new ConnectTask ( );
+        String ip , port;
         
-        Toast.makeText ( this , "Sending : ["+fileName+"]" , Toast.LENGTH_LONG ).show();
+        ip = this.editTextIPServer.getText ( ).toString ( );
         
-        conn.execute ( fileName , ip , port);
+        port = this.editTextPortServer.getText ( ).toString ( );
         
-        conn.sthap ( );
-        
-        Toast.makeText ( this , "Done" , Toast.LENGTH_LONG ).show();
+        if ( ip.equals ( "" ) || ip.equals ( "" ) )
+        {
+            Toast.makeText ( this , "Man! I need a valid IP/Port to Operate .-. " , Toast.LENGTH_LONG ).show ( );
+        }
+        else
+        {
+            ip = "192.168.43.104";
+            
+            port = "666";
+            ConnectTask conn = new ConnectTask ( );
+            
+            Toast.makeText ( this , "Sending : [" + fileName + "]" , Toast.LENGTH_LONG ).show ( );
+            
+            conn.execute ( fileName , ip , port );
+            
+            conn.sthap ( );
+            
+            Toast.makeText ( this , "Done" , Toast.LENGTH_LONG ).show ( );
+        }
         
     }
     
@@ -117,8 +139,8 @@ public class SendRegisterActivity extends Activity
      *                              ZIPANDO
      * 
      *---------------------------------------------------------------------*/
-    
-    private void zipFolder( String folderPath , String zipPath )
+
+    private void zipFolder ( String folderPath , String zipPath )
     {
         
         try
@@ -128,7 +150,7 @@ public class SendRegisterActivity extends Activity
         catch ( IOException e )
         {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            e.printStackTrace ( );
         }
     }
     
@@ -153,7 +175,7 @@ public class SendRegisterActivity extends Activity
         // TODO Auto-generated method stub
         Log.d ( MenuActivity.__FLAG__ , "SendRegister : " + string );
     }
-
+    
     @ Override
     public boolean onCreateOptionsMenu ( Menu menu )
     {

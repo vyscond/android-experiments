@@ -178,16 +178,18 @@ public class MaintainRegisterActivity extends Activity
          *  
          *---------------------------------------------------*/
 
-        gridViewEditPhotoAlbum.setOnItemClickListener ( new OnItemClickListener ( )
-        {
-            
-            public void onItemClick ( AdapterView < ? > arg0 , View arg1 , int arg2 , long arg3 )
-            {
-                // TODO Auto-generated method stub
-                selectingPhoto ( arg0 , arg1 , arg2 , arg3 );
-            }
-        }
-                );
+        gridViewEditPhotoAlbum.setOnItemClickListener ( 
+                
+                new OnItemClickListener ( )
+                {
+                
+                    public void onItemClick ( AdapterView < ? > arg0 , View arg1 , int arg2 , long arg3 )
+                    {
+                        // TODO Auto-generated method stub
+                        selectingPhoto ( arg0 , arg1 , arg2 , arg3 );
+                    }
+                }
+         );
         
         /*---------------------------------------------------
          * 
@@ -244,9 +246,6 @@ public class MaintainRegisterActivity extends Activity
          *  
          *-------------------------------------------------*/
 
-        
-        
-        
         textViewTakingPhoto.setOnClickListener ( new OnClickListener ( )
          {
              
@@ -260,22 +259,20 @@ public class MaintainRegisterActivity extends Activity
          } );
         
         /*-------------------------------------------------
-        *
-        *                SAVE ALL / CANCEL ALL
-        *                
-        *-------------------------------------------------*/
+         *
+         *                SAVE ALL / CANCEL ALL
+         *                
+         *-------------------------------------------------*/
 
-       
-       
-       this.saveAll.setOnClickListener ( new OnClickListener ( )
-       {
-           
-           public void onClick ( View v )
+        this.saveAll.setOnClickListener ( new OnClickListener ( )
+        {
+            
+            public void onClick ( View v )
            {
                // TODO Auto-generated method stub
                saveAll ( );
            }
-       } );
+        } );
         
     }
     
@@ -285,7 +282,6 @@ public class MaintainRegisterActivity extends Activity
         
         // --- Recuperando a activity atualmente selecionanda no tabhost
         // String tabTag = getTabHost().getCurrentTabTag();
-        
         
         Intent cameraIntent = new Intent (
                 android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
@@ -313,7 +309,7 @@ public class MaintainRegisterActivity extends Activity
             
         }
     }
-
+    
     private void emptyView ( )
     {
         // TODO Auto-generated method stub
@@ -341,7 +337,7 @@ public class MaintainRegisterActivity extends Activity
      * ULtimo metodo a ser chamado quando a seleção é feita :D
      */
 
-    RegisterItem lastSelectedRegister;
+    RegisterItem  lastSelectedRegister;
     
     // private void showPopUp2() {
     //
@@ -378,7 +374,7 @@ public class MaintainRegisterActivity extends Activity
     //
     // }
     
-    public int   lastPhotoSelectedIndex = 0;
+    public int    lastPhotoSelectedIndex = 0;
     
     public String lastPhotoSelectedPath;
     
@@ -393,7 +389,7 @@ public class MaintainRegisterActivity extends Activity
             
             lastPhotoSelectedIndex = arg2;
             
-            lastPhotoSelectedPath = ((SimplePojoPicture) arg0.getItemAtPosition ( arg2 )).getImagePath ( );
+            lastPhotoSelectedPath = ( (SimplePojoPicture) arg0.getItemAtPosition ( arg2 ) ).getImagePath ( );
             
             DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener ( )
             {
@@ -405,10 +401,10 @@ public class MaintainRegisterActivity extends Activity
                         case DialogInterface.BUTTON_POSITIVE :
                         // Yes button clicked
                         
-                        echo ( "Trying to delete ["+lastPhotoSelectedPath+"]" );
-                            
-                        editingAlbumManager.deletePhoto (  lastPhotoSelectedPath , lastPhotoSelectedIndex );
-                        
+                        echo ( "Trying to delete [" + lastPhotoSelectedPath + "]" );
+                        Toast.makeText ( MaintainRegisterActivity.this , "Trying to delete [" + lastPhotoSelectedPath + "]" ,Toast.LENGTH_SHORT ).show();
+                        editingAlbumManager.deletePhoto ( lastPhotoSelectedPath , lastPhotoSelectedIndex );
+                        sdcardManager.removeFile ( lastPhotoSelectedPath );
                         break;
                     
                     case DialogInterface.BUTTON_NEGATIVE :
@@ -503,6 +499,8 @@ public class MaintainRegisterActivity extends Activity
         this.echo ( " Setting values for forms " );
         
         this.editTextIdAmostra.setText ( savedReg.getIdAmostra ( ) );
+        
+        this.editTextIdAmostra.setEnabled ( false );
         
         this.editTextData.setText ( savedReg.getData ( ) );
         

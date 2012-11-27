@@ -3,10 +3,15 @@ package museu.sinbio_beta.creating;
 
 import museu.sinbio_beta.MenuActivity;
 import museu.sinbio_beta.R;
+import museu.sinbio_beta.common.filesystem.SdcardManager;
+import museu.sinbio_beta.common.photo.manager.pojo.SimplePojoPicture;
 import museu.sinbio_beta.common.xml.pojo.RegisterXml;
 import museu.sinbio_beta.creating.sub_activitys.photo.CreatingAlbumManager;
 import museu.sinbio_beta.creating.sub_activitys.xml.CreatingRegisterXMLManager;
+import museu.sinbio_beta.maintaining.MaintainRegisterActivity;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -18,11 +23,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewStub;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class CreateRegisterActivity extends Activity
 {
@@ -68,7 +75,7 @@ public class CreateRegisterActivity extends Activity
         
         viewStubFormView = ( (ViewStub) findViewById ( R.id.viewStub_createregister_form ) ).inflate ( );
         
-        GridView gV = ( (GridView) viewStubPhotoAlbumView.findViewById ( R.id.gridView_photo_gallery ) );
+        GridView gridViewPhotoWall = ( (GridView) viewStubPhotoAlbumView.findViewById ( R.id.gridView_photo_gallery ) );
         
         // viewStubFormView.setVisibility ( View.GONE );
         
@@ -78,7 +85,7 @@ public class CreateRegisterActivity extends Activity
          * 
          *-----------------------------------------------------*/
 
-        this.creatingAlbumManager = new CreatingAlbumManager ( this , gV , 2 );
+        this.creatingAlbumManager = new CreatingAlbumManager ( this , gridViewPhotoWall , 2 );
         
         this.creatingRegisterXMLManager = new CreatingRegisterXMLManager ( );
         
@@ -173,6 +180,25 @@ public class CreateRegisterActivity extends Activity
             }
         } );
         
+        /*---------------------------------------------------
+         * 
+         *            Photo Album GridView OnSelect Register
+         *  
+         *---------------------------------------------------*/
+
+        gridViewPhotoWall.setOnItemClickListener ( 
+                
+                new OnItemClickListener ( )
+                {
+                
+                    public void onItemClick ( AdapterView < ? > arg0 , View arg1 , int arg2 , long arg3 )
+                    {
+                        // TODO Auto-generated method stub
+                        selectingPhoto ( arg0 , arg1 , arg2 , arg3 );
+                    }
+                }
+         );
+        
         this.switchFromFormToPhotoAlbum ( );
     }
     
@@ -254,24 +280,87 @@ public class CreateRegisterActivity extends Activity
         String dataString  = this.editTextData.getText ( ).toString ( );
         String horaString = this.editTextHora.getText ( ).toString ( );
         
-                
-        String folderPath = Environment.getExternalStorageDirectory ( ).getAbsolutePath ( )+"/"+MenuActivity.BASE_FOLDER+"/"+"REGISTRO_"+this.editTextIdAmostra.getText ( ).toString ( );
-        
-        String fileName = "registro_"+this.editTextIdAmostra.getText ( ).toString ( );
-        
-        RegisterXml reg = new RegisterXml ( idString , dataString , horaString , fileName , folderPath );
-        
-        
-        Toast.makeText ( this , "Saving XML in Folder ["+folderPath+"]" , Toast.LENGTH_SHORT ).show ( );
-        
-        this.creatingRegisterXMLManager.saveNewXml (  reg  );
-        
-        Toast.makeText ( this , "Saving Images" , Toast.LENGTH_SHORT ).show ( );
-        
-        this.creatingAlbumManager.saveTakedPictures ( folderPath );
-        
-        Toast.makeText ( this , "Its on mothafucka []" , Toast.LENGTH_SHORT ).show ( );
+        if( !idString.equals ( "" ) )
+        {
+            
+            String folderPath = Environment.getExternalStorageDirectory ( ).getAbsolutePath ( )+"/"+MenuActivity.BASE_FOLDER+"/"+"REGISTRO_"+this.editTextIdAmostra.getText ( ).toString ( );
+            
+            String fileName = "registro_"+this.editTextIdAmostra.getText ( ).toString ( );
+            
+            RegisterXml reg = new RegisterXml ( idString , dataString , horaString , fileName , folderPath );
+            
+            
+            Toast.makeText ( this , "Saving XML in Folder ["+folderPath+"]" , Toast.LENGTH_SHORT ).show ( );
+            
+            this.creatingRegisterXMLManager.saveNewXml (  reg  );
+            
+            Toast.makeText ( this , "Saving Images" , Toast.LENGTH_SHORT ).show ( );
+            
+            this.creatingAlbumManager.saveTakedPictures ( folderPath );
+            
+            Toast.makeText ( this , "Its on mothafucka []" , Toast.LENGTH_SHORT ).show ( );
+        }
+        else{
+            Toast.makeText ( this , "Ponha um ID valido pro registro" , Toast.LENGTH_SHORT ).show ( );
+        }
     }
+    
+    public int    lastPhotoSelectedIndex = 0;
+    
+    public String lastPhotoSelectedPath;
+    
+    /* Deleting photos */
+    public void selectingPhoto ( AdapterView < ? > arg0 , View arg1 , int arg2 , long arg3 )
+    {
+        Toast.makeText ( this , "Selecting Photo " + arg2 , Toast.LENGTH_SHORT ).show ( );
+        
+        this.echo ( "Deleting photos" );
+        
+        try
+        {
+            
+            lastPhotoSelectedIndex = arg2;
+            
+            lastPhotoSelectedPath = ((SimplePojoPicture) arg0.getItemAtPosition ( arg2 )).getImagePath ( );
+            
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener ( )
+            {
+                
+                public void onClick ( DialogInterface dialog , int which )
+                {
+                    switch ( which )
+                    {
+                        case DialogInterface.BUTTON_POSITIVE :
+                        // Yes button clicked
+                        
+                        echo ( "Trying to delete ["+lastPhotoSelectedPath+"]" );
+                            
+                        creatingAlbumManager.deletePhoto (  lastPhotoSelectedPath , lastPhotoSelectedIndex );
+                        
+                        
+                        
+                        break;
+                    
+                    case DialogInterface.BUTTON_NEGATIVE :
+                        // No button clicked
+                        Toast.makeText ( CreateRegisterActivity.this , "No deletation xD" , Toast.LENGTH_SHORT ).show ( );
+                        break;
+                }
+            }
+            };
+            
+            AlertDialog.Builder builder = new AlertDialog.Builder ( this );
+            builder.setMessage ( "Deseja Mesmo Deletar a Foto?" ).setPositiveButton ( "Yes" , dialogClickListener )
+                    .setNegativeButton ( "No" , dialogClickListener ).show ( );
+            
+        }
+        catch ( Exception e )
+        {
+            // TODO: handle exception
+            Toast.makeText ( this , "BusyBox on the head @_@" , Toast.LENGTH_SHORT ).show ( );
+        }
+    }
+    
     
     @ Override
     public boolean onCreateOptionsMenu ( Menu menu )

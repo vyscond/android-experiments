@@ -159,7 +159,9 @@ public class PhotoAlbumManager
     
     public void deletePhotoFromVirtualList( int position )
     {
+        SimplePojoPicture photoToDelete = this.photoAlbum.getPhoto ( position );
         this.photoAlbum.remove( position );
+        this.photosTaked.remove ( photoToDelete.getImageName ( ) );
     }
     
     public void saveAllPhotos ( String absolutePath )
@@ -171,12 +173,13 @@ public class PhotoAlbumManager
         try
         {
         
-        for ( String label : this.photosTaked.keySet ( ) )
-        {
-            
-            this.sdcardManager.saveBitmapAsJPEG ( this.photosTaked.get ( label ) , label , SdcardManager.IMAGE_QUALITY_OK_THATS_FINE , absolutePath );
-            
-        }
+            for ( String label : this.photosTaked.keySet ( ) )
+            {
+                this.echo ( "Saving on sdcard : "+absolutePath  );
+                
+                this.sdcardManager.saveBitmapAsJPEG ( this.photosTaked.get ( label ) , label , SdcardManager.IMAGE_QUALITY_OK_THATS_FINE , absolutePath );
+                
+            }
         }
         catch (Exception e) {
 

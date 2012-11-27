@@ -42,12 +42,13 @@ public class EditingAlbumManager
     {
         this.photoAlbumManager.addPhoto ( pic );
     }
+    
     public void deletePhoto( String photoPath , int position)
     {
         
         this.photoAlbumManager.deletePhotoFromVirtualList ( position );
         
-        this.photoAlbumManager.deletePhotoFromFolder ( photoPath );
+       this.photoAlbumManager.deletePhotoFromFolder ( photoPath );
     }
 
     public void saveTakedPictures( String absolutePath )

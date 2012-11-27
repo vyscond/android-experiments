@@ -25,7 +25,13 @@ public class CreatingAlbumManager
     }
     
     
-    
+    public void deletePhoto( String photoPath , int position)
+    {
+        
+        this.photoAlbumManager.deletePhotoFromVirtualList ( position );
+        
+        //this.photoAlbumManager.deletePhotoFromFolder ( photoPath );
+    }
     
     public PhotoAlbumManager getPhotoAlbumManager ( )
     {

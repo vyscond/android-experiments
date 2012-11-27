@@ -62,6 +62,11 @@ public class SimplePhotoAlbumView extends Simple
         
     }
     
+    public SimplePojoPicture getPhoto( int position )
+    {
+        return (SimplePojoPicture) this.adapter.getItem ( position );
+    }
+    
     public void addPhoto( SimplePojoPicture p )
     {
         this.adapter.addItem ( p );
